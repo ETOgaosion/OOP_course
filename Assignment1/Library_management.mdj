@@ -1029,7 +1029,7 @@
 											"top": 776,
 											"width": 535,
 											"height": 13,
-											"text": "+确认借阅图书(List 操作书籍信息, text 学生姓名, text 班级姓名, text 学号, text 信用评价)",
+											"text": "+确认借阅图书(List 操作书籍信息, text 学生姓名, text 班级年级, text 学号, text 信用评价)",
 											"horizontalAlignment": 0
 										},
 										{
@@ -1046,7 +1046,7 @@
 											"top": 791,
 											"width": 535,
 											"height": 13,
-											"text": "+确认归还书籍(List 操作书籍信息, text 学生姓名, text 班级姓名, text 学号, text 信用评价)",
+											"text": "+确认归还书籍(List 操作书籍信息, text 学生姓名, text 班级年级, text 学号, text 信用评价)",
 											"horizontalAlignment": 0
 										},
 										{
@@ -2897,7 +2897,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF8NBWUC/2FDkU="
 							},
-							"name": "名称"
+							"name": "名称",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -2905,7 +2906,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF8NBWUC/2FDkU="
 							},
-							"name": "编号"
+							"name": "编号",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -2913,7 +2915,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF8NBWUC/2FDkU="
 							},
-							"name": "类别"
+							"name": "类别",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -2921,7 +2924,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF8NBWUC/2FDkU="
 							},
-							"name": "价格"
+							"name": "价格",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -2929,7 +2933,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF8NBWUC/2FDkU="
 							},
-							"name": "摘要信息"
+							"name": "摘要信息",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -2937,7 +2942,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF8NBWUC/2FDkU="
 							},
-							"name": "状态"
+							"name": "状态",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -2956,7 +2962,8 @@
 									"name": "Statement",
 									"specification": "有可能与状态重复\n但状态是借出/未借出，通常会独立成为属性"
 								}
-							]
+							],
+							"type": ""
 						}
 					]
 				},
@@ -3118,7 +3125,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF8NCWLlP4aMz0="
 							},
-							"name": "姓名"
+							"name": "姓名",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -3126,7 +3134,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF8NCWLlP4aMz0="
 							},
-							"name": "班级年级"
+							"name": "班级年级",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -3134,7 +3143,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF8NCWLlP4aMz0="
 							},
-							"name": "学号"
+							"name": "学号",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -3143,7 +3153,8 @@
 								"$ref": "AAAAAAF8NCWLlP4aMz0="
 							},
 							"name": "信用评价",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -3152,7 +3163,8 @@
 								"$ref": "AAAAAAF8NCWLlP4aMz0="
 							},
 							"name": "当前借阅数量",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -3161,7 +3173,8 @@
 								"$ref": "AAAAAAF8NCWLlP4aMz0="
 							},
 							"name": "当前借阅图书信息列表",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -3170,7 +3183,8 @@
 								"$ref": "AAAAAAF8NCWLlP4aMz0="
 							},
 							"name": "可借阅数量",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -3179,7 +3193,8 @@
 								"$ref": "AAAAAAF8NCWLlP4aMz0="
 							},
 							"name": "希望借阅图书信息列表",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -3188,7 +3203,8 @@
 								"$ref": "AAAAAAF8NCWLlP4aMz0="
 							},
 							"name": "共应缴赔偿金额",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -3197,7 +3213,8 @@
 								"$ref": "AAAAAAF8NCWLlP4aMz0="
 							},
 							"name": "已缴赔偿金额",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						}
 					],
 					"operations": [
@@ -3216,7 +3233,8 @@
 									"_parent": {
 										"$ref": "AAAAAAF8NC3cH/6P9ww="
 									},
-									"name": "Object 书"
+									"name": "Object 书",
+									"type": ""
 								}
 							]
 						},
@@ -3370,7 +3388,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF8NDQW0/7Ifmw="
 							},
-							"name": "编号"
+							"name": "编号",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -3378,7 +3397,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF8NDQW0/7Ifmw="
 							},
-							"name": "权限"
+							"name": "权限",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -3387,7 +3407,8 @@
 								"$ref": "AAAAAAF8NDQW0/7Ifmw="
 							},
 							"name": "操作书籍信息",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -3396,7 +3417,8 @@
 								"$ref": "AAAAAAF8NDQW0/7Ifmw="
 							},
 							"name": "操作金额",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -3405,7 +3427,8 @@
 								"$ref": "AAAAAAF8NDQW0/7Ifmw="
 							},
 							"name": "学生欠费表",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -3414,7 +3437,8 @@
 								"$ref": "AAAAAAF8NDQW0/7Ifmw="
 							},
 							"name": "全书籍列表",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -3423,7 +3447,8 @@
 								"$ref": "AAAAAAF8NDQW0/7Ifmw="
 							},
 							"name": "学生借阅表",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						}
 					],
 					"operations": [
@@ -3457,7 +3482,7 @@
 									"_parent": {
 										"$ref": "AAAAAAF8NDZtLv8QTlI="
 									},
-									"name": "text 班级姓名"
+									"name": "text 班级年级"
 								},
 								{
 									"_type": "UMLParameter",
@@ -3473,8 +3498,7 @@
 									"_parent": {
 										"$ref": "AAAAAAF8NDZtLv8QTlI="
 									},
-									"name": "text 信用评价",
-									"type": ""
+									"name": "text 信用评价"
 								}
 							]
 						},
@@ -3508,7 +3532,7 @@
 									"_parent": {
 										"$ref": "AAAAAAF8NDTeov8A7c4="
 									},
-									"name": "text 班级姓名"
+									"name": "text 班级年级"
 								},
 								{
 									"_type": "UMLParameter",
@@ -3524,8 +3548,7 @@
 									"_parent": {
 										"$ref": "AAAAAAF8NDTeov8A7c4="
 									},
-									"name": "text 信用评价",
-									"type": ""
+									"name": "text 信用评价"
 								}
 							]
 						},
@@ -3543,7 +3566,8 @@
 									"_parent": {
 										"$ref": "AAAAAAF8NDcsxf8hEC0="
 									},
-									"name": "double 操作金额"
+									"name": "double 操作金额",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -3551,7 +3575,8 @@
 									"_parent": {
 										"$ref": "AAAAAAF8NDcsxf8hEC0="
 									},
-									"name": "List 学生欠费表"
+									"name": "List 学生欠费表",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
