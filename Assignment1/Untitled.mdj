@@ -1,0 +1,1486 @@
+{
+	"_type": "Project",
+	"_id": "AAAAAAFF+h6SjaM2Hec=",
+	"name": "Untitled",
+	"ownedElements": [
+		{
+			"_type": "UMLModel",
+			"_id": "AAAAAAFF+qBWK6M3Z8Y=",
+			"_parent": {
+				"$ref": "AAAAAAFF+h6SjaM2Hec="
+			},
+			"name": "Model",
+			"ownedElements": [
+				{
+					"_type": "UMLClassDiagram",
+					"_id": "AAAAAAFF+qBtyKM79qY=",
+					"_parent": {
+						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
+					},
+					"name": "Main",
+					"defaultDiagram": true,
+					"ownedViews": [
+						{
+							"_type": "UMLClassView",
+							"_id": "AAAAAAF8NBWUDf2HO0s=",
+							"_parent": {
+								"$ref": "AAAAAAFF+qBtyKM79qY="
+							},
+							"model": {
+								"$ref": "AAAAAAF8NBWUC/2FDkU="
+							},
+							"subViews": [
+								{
+									"_type": "UMLNameCompartmentView",
+									"_id": "AAAAAAF8NBWUDf2I4oE=",
+									"_parent": {
+										"$ref": "AAAAAAF8NBWUDf2HO0s="
+									},
+									"model": {
+										"$ref": "AAAAAAF8NBWUC/2FDkU="
+									},
+									"subViews": [
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAF8NBWUDf2J8Pc=",
+											"_parent": {
+												"$ref": "AAAAAAF8NBWUDf2I4oE="
+											},
+											"visible": false,
+											"font": "Arial;13;0",
+											"left": -32,
+											"top": 16,
+											"height": 13
+										},
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAF8NBWUDf2KEg0=",
+											"_parent": {
+												"$ref": "AAAAAAF8NBWUDf2I4oE="
+											},
+											"font": "Arial;13;1",
+											"left": 261,
+											"top": 175,
+											"width": 151,
+											"height": 13,
+											"text": "书籍"
+										},
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAF8NBWUDf2L5XE=",
+											"_parent": {
+												"$ref": "AAAAAAF8NBWUDf2I4oE="
+											},
+											"visible": false,
+											"font": "Arial;13;0",
+											"left": -32,
+											"top": 16,
+											"width": 73.67724609375,
+											"height": 13,
+											"text": "(from Model)"
+										},
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAF8NBWUDf2MbRs=",
+											"_parent": {
+												"$ref": "AAAAAAF8NBWUDf2I4oE="
+											},
+											"visible": false,
+											"font": "Arial;13;0",
+											"left": 245,
+											"top": 198,
+											"width": 191,
+											"height": 13,
+											"horizontalAlignment": 1
+										}
+									],
+									"font": "Arial;13;0",
+									"left": 256,
+									"top": 168,
+									"width": 161,
+									"height": 25,
+									"stereotypeLabel": {
+										"$ref": "AAAAAAF8NBWUDf2J8Pc="
+									},
+									"nameLabel": {
+										"$ref": "AAAAAAF8NBWUDf2KEg0="
+									},
+									"namespaceLabel": {
+										"$ref": "AAAAAAF8NBWUDf2L5XE="
+									},
+									"propertyLabel": {
+										"$ref": "AAAAAAF8NBWUDf2MbRs="
+									}
+								},
+								{
+									"_type": "UMLAttributeCompartmentView",
+									"_id": "AAAAAAF8NBWUDf2NgYc=",
+									"_parent": {
+										"$ref": "AAAAAAF8NBWUDf2HO0s="
+									},
+									"model": {
+										"$ref": "AAAAAAF8NBWUC/2FDkU="
+									},
+									"subViews": [
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAF8NBmqwv3lUbU=",
+											"_parent": {
+												"$ref": "AAAAAAF8NBWUDf2NgYc="
+											},
+											"model": {
+												"$ref": "AAAAAAF8NBmqvv3iUmo="
+											},
+											"font": "Arial;13;0",
+											"left": 261,
+											"top": 198,
+											"width": 151,
+											"height": 13,
+											"text": "+名称",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAF8NBnSYf3slj8=",
+											"_parent": {
+												"$ref": "AAAAAAF8NBWUDf2NgYc="
+											},
+											"model": {
+												"$ref": "AAAAAAF8NBnSXf3p+pE="
+											},
+											"font": "Arial;13;0",
+											"left": 261,
+											"top": 213,
+											"width": 151,
+											"height": 13,
+											"text": "+编号",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAF8NB395f3zqPI=",
+											"_parent": {
+												"$ref": "AAAAAAF8NBWUDf2NgYc="
+											},
+											"model": {
+												"$ref": "AAAAAAF8NB394P3wyRk="
+											},
+											"font": "Arial;13;0",
+											"left": 261,
+											"top": 228,
+											"width": 151,
+											"height": 13,
+											"text": "+类别",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAF8NB+FHf36row=",
+											"_parent": {
+												"$ref": "AAAAAAF8NBWUDf2NgYc="
+											},
+											"model": {
+												"$ref": "AAAAAAF8NB+FGP33UTQ="
+											},
+											"font": "Arial;13;0",
+											"left": 261,
+											"top": 243,
+											"width": 151,
+											"height": 13,
+											"text": "+价格",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAF8NCBS9v4BMmE=",
+											"_parent": {
+												"$ref": "AAAAAAF8NBWUDf2NgYc="
+											},
+											"model": {
+												"$ref": "AAAAAAF8NCBS8v3+vdI="
+											},
+											"font": "Arial;13;0",
+											"left": 261,
+											"top": 258,
+											"width": 151,
+											"height": 13,
+											"text": "+摘要信息",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAF8NCEINP4IGIg=",
+											"_parent": {
+												"$ref": "AAAAAAF8NBWUDf2NgYc="
+											},
+											"model": {
+												"$ref": "AAAAAAF8NCEIMP4FBcw="
+											},
+											"font": "Arial;13;0",
+											"left": 261,
+											"top": 273,
+											"width": 151,
+											"height": 13,
+											"text": "+状态",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAF8NCEkGP4Pp/E=",
+											"_parent": {
+												"$ref": "AAAAAAF8NBWUDf2NgYc="
+											},
+											"model": {
+												"$ref": "AAAAAAF8NCEkFP4MeOc="
+											},
+											"font": "Arial;13;0",
+											"left": 261,
+											"top": 288,
+											"width": 151,
+											"height": 13,
+											"text": "+当前所有者",
+											"horizontalAlignment": 0
+										}
+									],
+									"font": "Arial;13;0",
+									"left": 256,
+									"top": 193,
+									"width": 161,
+									"height": 113
+								},
+								{
+									"_type": "UMLOperationCompartmentView",
+									"_id": "AAAAAAF8NBWUDf2O01U=",
+									"_parent": {
+										"$ref": "AAAAAAF8NBWUDf2HO0s="
+									},
+									"model": {
+										"$ref": "AAAAAAF8NBWUC/2FDkU="
+									},
+									"font": "Arial;13;0",
+									"left": 256,
+									"top": 306,
+									"width": 161,
+									"height": 10
+								},
+								{
+									"_type": "UMLReceptionCompartmentView",
+									"_id": "AAAAAAF8NBWUDf2PJSE=",
+									"_parent": {
+										"$ref": "AAAAAAF8NBWUDf2HO0s="
+									},
+									"model": {
+										"$ref": "AAAAAAF8NBWUC/2FDkU="
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"left": -16,
+									"top": 8,
+									"width": 10,
+									"height": 10
+								},
+								{
+									"_type": "UMLTemplateParameterCompartmentView",
+									"_id": "AAAAAAF8NBWUDf2QFpc=",
+									"_parent": {
+										"$ref": "AAAAAAF8NBWUDf2HO0s="
+									},
+									"model": {
+										"$ref": "AAAAAAF8NBWUC/2FDkU="
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"left": 325.3310546875,
+									"top": 168,
+									"width": 130.6689453125,
+									"height": 10
+								}
+							],
+							"font": "Arial;13;0",
+							"containerChangeable": true,
+							"left": 256,
+							"top": 168,
+							"width": 161,
+							"height": 148,
+							"nameCompartment": {
+								"$ref": "AAAAAAF8NBWUDf2I4oE="
+							},
+							"attributeCompartment": {
+								"$ref": "AAAAAAF8NBWUDf2NgYc="
+							},
+							"operationCompartment": {
+								"$ref": "AAAAAAF8NBWUDf2O01U="
+							},
+							"receptionCompartment": {
+								"$ref": "AAAAAAF8NBWUDf2PJSE="
+							},
+							"templateParameterCompartment": {
+								"$ref": "AAAAAAF8NBWUDf2QFpc="
+							}
+						},
+						{
+							"_type": "UMLClassView",
+							"_id": "AAAAAAF8NCWLlP4cKs8=",
+							"_parent": {
+								"$ref": "AAAAAAFF+qBtyKM79qY="
+							},
+							"model": {
+								"$ref": "AAAAAAF8NCWLlP4aMz0="
+							},
+							"subViews": [
+								{
+									"_type": "UMLNameCompartmentView",
+									"_id": "AAAAAAF8NCWLlP4dlW0=",
+									"_parent": {
+										"$ref": "AAAAAAF8NCWLlP4cKs8="
+									},
+									"model": {
+										"$ref": "AAAAAAF8NCWLlP4aMz0="
+									},
+									"subViews": [
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAF8NCWLlP4e6Qk=",
+											"_parent": {
+												"$ref": "AAAAAAF8NCWLlP4dlW0="
+											},
+											"visible": false,
+											"font": "Arial;13;0",
+											"height": 13
+										},
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAF8NCWLlf4f4DY=",
+											"_parent": {
+												"$ref": "AAAAAAF8NCWLlP4dlW0="
+											},
+											"font": "Arial;13;1",
+											"left": 597,
+											"top": 167,
+											"width": 303.7734375,
+											"height": 13,
+											"text": "学生"
+										},
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAF8NCWLlf4g/To=",
+											"_parent": {
+												"$ref": "AAAAAAF8NCWLlP4dlW0="
+											},
+											"visible": false,
+											"font": "Arial;13;0",
+											"width": 73.67724609375,
+											"height": 13,
+											"text": "(from Model)"
+										},
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAF8NCWLlf4hRf8=",
+											"_parent": {
+												"$ref": "AAAAAAF8NCWLlP4dlW0="
+											},
+											"visible": false,
+											"font": "Arial;13;0",
+											"height": 13,
+											"horizontalAlignment": 1
+										}
+									],
+									"font": "Arial;13;0",
+									"left": 592,
+									"top": 160,
+									"width": 313.7734375,
+									"height": 25,
+									"stereotypeLabel": {
+										"$ref": "AAAAAAF8NCWLlP4e6Qk="
+									},
+									"nameLabel": {
+										"$ref": "AAAAAAF8NCWLlf4f4DY="
+									},
+									"namespaceLabel": {
+										"$ref": "AAAAAAF8NCWLlf4g/To="
+									},
+									"propertyLabel": {
+										"$ref": "AAAAAAF8NCWLlf4hRf8="
+									}
+								},
+								{
+									"_type": "UMLAttributeCompartmentView",
+									"_id": "AAAAAAF8NCWLlf4irmY=",
+									"_parent": {
+										"$ref": "AAAAAAF8NCWLlP4cKs8="
+									},
+									"model": {
+										"$ref": "AAAAAAF8NCWLlP4aMz0="
+									},
+									"subViews": [
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAF8NCX3Hv5Jl2U=",
+											"_parent": {
+												"$ref": "AAAAAAF8NCWLlf4irmY="
+											},
+											"model": {
+												"$ref": "AAAAAAF8NCX3Cv5GXtw="
+											},
+											"font": "Arial;13;0",
+											"left": 597,
+											"top": 190,
+											"width": 303.7734375,
+											"height": 13,
+											"text": "+姓名",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAF8NCYbsv5QPTM=",
+											"_parent": {
+												"$ref": "AAAAAAF8NCWLlf4irmY="
+											},
+											"model": {
+												"$ref": "AAAAAAF8NCYbrf5NjiM="
+											},
+											"font": "Arial;13;0",
+											"left": 597,
+											"top": 205,
+											"width": 303.7734375,
+											"height": 13,
+											"text": "+班级年级",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAF8NCc/Qf5XAH8=",
+											"_parent": {
+												"$ref": "AAAAAAF8NCWLlf4irmY="
+											},
+											"model": {
+												"$ref": "AAAAAAF8NCc/PP5UkZ8="
+											},
+											"font": "Arial;13;0",
+											"left": 597,
+											"top": 220,
+											"width": 303.7734375,
+											"height": 13,
+											"text": "+学号",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAF8NCdmgP5e9QI=",
+											"_parent": {
+												"$ref": "AAAAAAF8NCWLlf4irmY="
+											},
+											"model": {
+												"$ref": "AAAAAAF8NCdme/5bq4M="
+											},
+											"font": "Arial;13;0",
+											"left": 597,
+											"top": 235,
+											"width": 303.7734375,
+											"height": 13,
+											"text": "+信用评价",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAF8NCkji/5mxEU=",
+											"_parent": {
+												"$ref": "AAAAAAF8NCWLlf4irmY="
+											},
+											"model": {
+												"$ref": "AAAAAAF8NCkjhf5jYOc="
+											},
+											"font": "Arial;13;0",
+											"left": 597,
+											"top": 250,
+											"width": 303.7734375,
+											"height": 13,
+											"text": "+当前借阅数量",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAF8NClzev50t/8=",
+											"_parent": {
+												"$ref": "AAAAAAF8NCWLlf4irmY="
+											},
+											"model": {
+												"$ref": "AAAAAAF8NClzdP5xGN8="
+											},
+											"font": "Arial;13;0",
+											"left": 597,
+											"top": 265,
+											"width": 303.7734375,
+											"height": 13,
+											"text": "+当前借阅图书信息列表",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAF8NClIw/5tG7M=",
+											"_parent": {
+												"$ref": "AAAAAAF8NCWLlf4irmY="
+											},
+											"model": {
+												"$ref": "AAAAAAF8NClIv/5qPP0="
+											},
+											"font": "Arial;13;0",
+											"left": 597,
+											"top": 280,
+											"width": 303.7734375,
+											"height": 13,
+											"text": "+可借阅数量",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAF8NCxsnv58DmY=",
+											"_parent": {
+												"$ref": "AAAAAAF8NCWLlf4irmY="
+											},
+											"model": {
+												"$ref": "AAAAAAF8NCxsmP55csA="
+											},
+											"font": "Arial;13;0",
+											"left": 597,
+											"top": 295,
+											"width": 303.7734375,
+											"height": 13,
+											"text": "+希望借阅图书信息列表",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAF8NCzlx/6DC0E=",
+											"_parent": {
+												"$ref": "AAAAAAF8NCWLlf4irmY="
+											},
+											"model": {
+												"$ref": "AAAAAAF8NCzlw/6ARQk="
+											},
+											"font": "Arial;13;0",
+											"left": 597,
+											"top": 310,
+											"width": 303.7734375,
+											"height": 13,
+											"text": "+共应缴赔偿金额",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAF8NC1RN/6KjHY=",
+											"_parent": {
+												"$ref": "AAAAAAF8NCWLlf4irmY="
+											},
+											"model": {
+												"$ref": "AAAAAAF8NC1RMv6HpDM="
+											},
+											"font": "Arial;13;0",
+											"left": 597,
+											"top": 325,
+											"width": 303.7734375,
+											"height": 13,
+											"text": "+已缴赔偿金额",
+											"horizontalAlignment": 0
+										}
+									],
+									"font": "Arial;13;0",
+									"left": 592,
+									"top": 185,
+									"width": 313.7734375,
+									"height": 158
+								},
+								{
+									"_type": "UMLOperationCompartmentView",
+									"_id": "AAAAAAF8NCWLlf4jo6M=",
+									"_parent": {
+										"$ref": "AAAAAAF8NCWLlP4cKs8="
+									},
+									"model": {
+										"$ref": "AAAAAAF8NCWLlP4aMz0="
+									},
+									"subViews": [
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAF8NC3cKP6Se/E=",
+											"_parent": {
+												"$ref": "AAAAAAF8NCWLlf4jo6M="
+											},
+											"model": {
+												"$ref": "AAAAAAF8NC3cH/6P9ww="
+											},
+											"font": "Arial;13;0",
+											"left": 597,
+											"top": 348,
+											"width": 303.7734375,
+											"height": 13,
+											"text": "+获取书籍(Object 书)",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAF8NDC4c/6vZhk=",
+											"_parent": {
+												"$ref": "AAAAAAF8NCWLlf4jo6M="
+											},
+											"model": {
+												"$ref": "AAAAAAF8NDC4bf6svlE="
+											},
+											"font": "Arial;13;0",
+											"left": 597,
+											"top": 363,
+											"width": 303.7734375,
+											"height": 13,
+											"text": "+请求借阅书籍(List 希望借阅书籍信息列表)",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAF8NC9O8P6bqFQ=",
+											"_parent": {
+												"$ref": "AAAAAAF8NCWLlf4jo6M="
+											},
+											"model": {
+												"$ref": "AAAAAAF8NC9O6/6Yk/Y="
+											},
+											"font": "Arial;13;0",
+											"left": 597,
+											"top": 378,
+											"width": 303.7734375,
+											"height": 13,
+											"text": "+请求归还书籍(List 当前借阅图书信息列表)",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAF8NC+9l/6mCx0=",
+											"_parent": {
+												"$ref": "AAAAAAF8NCWLlf4jo6M="
+											},
+											"model": {
+												"$ref": "AAAAAAF8NC+9kv6jzsk="
+											},
+											"font": "Arial;13;0",
+											"left": 597,
+											"top": 393,
+											"width": 303.7734375,
+											"height": 13,
+											"text": "+查看已借阅书籍列表(List 当前借阅图书列表)",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAF8NDIr6v69EmY=",
+											"_parent": {
+												"$ref": "AAAAAAF8NCWLlf4jo6M="
+											},
+											"model": {
+												"$ref": "AAAAAAF8NDIr5P66PzU="
+											},
+											"font": "Arial;13;0",
+											"left": 597,
+											"top": 408,
+											"width": 303.7734375,
+											"height": 13,
+											"text": "+请求缴费(double 共应缴金额, double 已缴赔偿金额)",
+											"horizontalAlignment": 0
+										}
+									],
+									"font": "Arial;13;0",
+									"left": 592,
+									"top": 343,
+									"width": 313.7734375,
+									"height": 83
+								},
+								{
+									"_type": "UMLReceptionCompartmentView",
+									"_id": "AAAAAAF8NCWLlf4kC9g=",
+									"_parent": {
+										"$ref": "AAAAAAF8NCWLlP4cKs8="
+									},
+									"model": {
+										"$ref": "AAAAAAF8NCWLlP4aMz0="
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"width": 10,
+									"height": 10
+								},
+								{
+									"_type": "UMLTemplateParameterCompartmentView",
+									"_id": "AAAAAAF8NCWLlf4lkEk=",
+									"_parent": {
+										"$ref": "AAAAAAF8NCWLlP4cKs8="
+									},
+									"model": {
+										"$ref": "AAAAAAF8NCWLlP4aMz0="
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"width": 10,
+									"height": 10
+								}
+							],
+							"font": "Arial;13;0",
+							"containerChangeable": true,
+							"left": 592,
+							"top": 160,
+							"width": 313.7734375,
+							"height": 266,
+							"nameCompartment": {
+								"$ref": "AAAAAAF8NCWLlP4dlW0="
+							},
+							"attributeCompartment": {
+								"$ref": "AAAAAAF8NCWLlf4irmY="
+							},
+							"operationCompartment": {
+								"$ref": "AAAAAAF8NCWLlf4jo6M="
+							},
+							"receptionCompartment": {
+								"$ref": "AAAAAAF8NCWLlf4kC9g="
+							},
+							"templateParameterCompartment": {
+								"$ref": "AAAAAAF8NCWLlf4lkEk="
+							}
+						},
+						{
+							"_type": "UMLClassView",
+							"_id": "AAAAAAF8NDQW1P7KIpg=",
+							"_parent": {
+								"$ref": "AAAAAAFF+qBtyKM79qY="
+							},
+							"model": {
+								"$ref": "AAAAAAF8NDQW0/7Ifmw="
+							},
+							"subViews": [
+								{
+									"_type": "UMLNameCompartmentView",
+									"_id": "AAAAAAF8NDQW1P7LxRQ=",
+									"_parent": {
+										"$ref": "AAAAAAF8NDQW1P7KIpg="
+									},
+									"model": {
+										"$ref": "AAAAAAF8NDQW0/7Ifmw="
+									},
+									"subViews": [
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAF8NDQW1P7MGD4=",
+											"_parent": {
+												"$ref": "AAAAAAF8NDQW1P7LxRQ="
+											},
+											"visible": false,
+											"font": "Arial;13;0",
+											"height": 13
+										},
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAF8NDQW1f7NT2M=",
+											"_parent": {
+												"$ref": "AAAAAAF8NDQW1P7LxRQ="
+											},
+											"font": "Arial;13;1",
+											"left": 1053,
+											"top": 167,
+											"width": 292.1572265625,
+											"height": 13,
+											"text": "图书管理员"
+										},
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAF8NDQW1f7OqZY=",
+											"_parent": {
+												"$ref": "AAAAAAF8NDQW1P7LxRQ="
+											},
+											"visible": false,
+											"font": "Arial;13;0",
+											"width": 73.67724609375,
+											"height": 13,
+											"text": "(from Model)"
+										},
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAF8NDQW1f7P1q0=",
+											"_parent": {
+												"$ref": "AAAAAAF8NDQW1P7LxRQ="
+											},
+											"visible": false,
+											"font": "Arial;13;0",
+											"height": 13,
+											"horizontalAlignment": 1
+										}
+									],
+									"font": "Arial;13;0",
+									"left": 1048,
+									"top": 160,
+									"width": 302.1572265625,
+									"height": 25,
+									"stereotypeLabel": {
+										"$ref": "AAAAAAF8NDQW1P7MGD4="
+									},
+									"nameLabel": {
+										"$ref": "AAAAAAF8NDQW1f7NT2M="
+									},
+									"namespaceLabel": {
+										"$ref": "AAAAAAF8NDQW1f7OqZY="
+									},
+									"propertyLabel": {
+										"$ref": "AAAAAAF8NDQW1f7P1q0="
+									}
+								},
+								{
+									"_type": "UMLAttributeCompartmentView",
+									"_id": "AAAAAAF8NDQW1f7QdEE=",
+									"_parent": {
+										"$ref": "AAAAAAF8NDQW1P7KIpg="
+									},
+									"model": {
+										"$ref": "AAAAAAF8NDQW0/7Ifmw="
+									},
+									"subViews": [
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAF8NDRFdP71B/I=",
+											"_parent": {
+												"$ref": "AAAAAAF8NDQW1f7QdEE="
+											},
+											"model": {
+												"$ref": "AAAAAAF8NDRFY/7yF6E="
+											},
+											"font": "Arial;13;0",
+											"left": 1053,
+											"top": 190,
+											"width": 292.1572265625,
+											"height": 13,
+											"text": "+编号",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAF8NDRkJ/78iRs=",
+											"_parent": {
+												"$ref": "AAAAAAF8NDQW1f7QdEE="
+											},
+											"model": {
+												"$ref": "AAAAAAF8NDRkIv75MLo="
+											},
+											"font": "Arial;13;0",
+											"left": 1053,
+											"top": 205,
+											"width": 292.1572265625,
+											"height": 13,
+											"text": "+权限",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAF8NDYYsf8MV24=",
+											"_parent": {
+												"$ref": "AAAAAAF8NDQW1f7QdEE="
+											},
+											"model": {
+												"$ref": "AAAAAAF8NDYYp/8Jio0="
+											},
+											"font": "Arial;13;0",
+											"left": 1053,
+											"top": 220,
+											"width": 292.1572265625,
+											"height": 13,
+											"text": "+操作书籍信息",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAF8NDbxcP8d6Ks=",
+											"_parent": {
+												"$ref": "AAAAAAF8NDQW1f7QdEE="
+											},
+											"model": {
+												"$ref": "AAAAAAF8NDbxav8auns="
+											},
+											"font": "Arial;13;0",
+											"left": 1053,
+											"top": 235,
+											"width": 292.1572265625,
+											"height": 13,
+											"text": "+操作金额",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAF8NDfzMv8vYco=",
+											"_parent": {
+												"$ref": "AAAAAAF8NDQW1f7QdEE="
+											},
+											"model": {
+												"$ref": "AAAAAAF8NDfzJ/8sDE4="
+											},
+											"font": "Arial;13;0",
+											"left": 1053,
+											"top": 250,
+											"width": 292.1572265625,
+											"height": 13,
+											"text": "+学生欠费表",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAF8NDjNof82NCA=",
+											"_parent": {
+												"$ref": "AAAAAAF8NDQW1f7QdEE="
+											},
+											"model": {
+												"$ref": "AAAAAAF8NDjNm/8zu+w="
+											},
+											"font": "Arial;13;0",
+											"left": 1053,
+											"top": 265,
+											"width": 292.1572265625,
+											"height": 13,
+											"text": "+全书籍列表",
+											"horizontalAlignment": 0
+										}
+									],
+									"font": "Arial;13;0",
+									"left": 1048,
+									"top": 185,
+									"width": 302.1572265625,
+									"height": 98
+								},
+								{
+									"_type": "UMLOperationCompartmentView",
+									"_id": "AAAAAAF8NDQW1f7RA5U=",
+									"_parent": {
+										"$ref": "AAAAAAF8NDQW1P7KIpg="
+									},
+									"model": {
+										"$ref": "AAAAAAF8NDQW0/7Ifmw="
+									},
+									"subViews": [
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAF8NDZtOP8Tqn0=",
+											"_parent": {
+												"$ref": "AAAAAAF8NDQW1f7RA5U="
+											},
+											"model": {
+												"$ref": "AAAAAAF8NDZtLv8QTlI="
+											},
+											"font": "Arial;13;0",
+											"left": 1053,
+											"top": 288,
+											"width": 292.1572265625,
+											"height": 13,
+											"text": "+确认借阅图书(List 操作书籍信息, List 全书籍列表)",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAF8NDTerP8DgUs=",
+											"_parent": {
+												"$ref": "AAAAAAF8NDQW1f7RA5U="
+											},
+											"model": {
+												"$ref": "AAAAAAF8NDTeov8A7c4="
+											},
+											"font": "Arial;13;0",
+											"left": 1053,
+											"top": 303,
+											"width": 292.1572265625,
+											"height": 13,
+											"text": "+确认归还书籍(List 操作书籍信息, List 全书籍列表)",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAF8NDcs0v8kE+c=",
+											"_parent": {
+												"$ref": "AAAAAAF8NDQW1f7RA5U="
+											},
+											"model": {
+												"$ref": "AAAAAAF8NDcsxf8hEC0="
+											},
+											"font": "Arial;13;0",
+											"left": 1053,
+											"top": 318,
+											"width": 292.1572265625,
+											"height": 13,
+											"text": "+确认缴费(double 操作金额, List 学生欠费表)",
+											"horizontalAlignment": 0
+										}
+									],
+									"font": "Arial;13;0",
+									"left": 1048,
+									"top": 283,
+									"width": 302.1572265625,
+									"height": 53
+								},
+								{
+									"_type": "UMLReceptionCompartmentView",
+									"_id": "AAAAAAF8NDQW1f7SOe8=",
+									"_parent": {
+										"$ref": "AAAAAAF8NDQW1P7KIpg="
+									},
+									"model": {
+										"$ref": "AAAAAAF8NDQW0/7Ifmw="
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"width": 10,
+									"height": 10
+								},
+								{
+									"_type": "UMLTemplateParameterCompartmentView",
+									"_id": "AAAAAAF8NDQW1f7Tbqg=",
+									"_parent": {
+										"$ref": "AAAAAAF8NDQW1P7KIpg="
+									},
+									"model": {
+										"$ref": "AAAAAAF8NDQW0/7Ifmw="
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"width": 10,
+									"height": 10
+								}
+							],
+							"font": "Arial;13;0",
+							"containerChangeable": true,
+							"left": 1048,
+							"top": 160,
+							"width": 302.1572265625,
+							"height": 264,
+							"nameCompartment": {
+								"$ref": "AAAAAAF8NDQW1P7LxRQ="
+							},
+							"attributeCompartment": {
+								"$ref": "AAAAAAF8NDQW1f7QdEE="
+							},
+							"operationCompartment": {
+								"$ref": "AAAAAAF8NDQW1f7RA5U="
+							},
+							"receptionCompartment": {
+								"$ref": "AAAAAAF8NDQW1f7SOe8="
+							},
+							"templateParameterCompartment": {
+								"$ref": "AAAAAAF8NDQW1f7Tbqg="
+							}
+						}
+					]
+				},
+				{
+					"_type": "UMLClass",
+					"_id": "AAAAAAF8NBWUC/2FDkU=",
+					"_parent": {
+						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
+					},
+					"name": "书籍",
+					"attributes": [
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAF8NBmqvv3iUmo=",
+							"_parent": {
+								"$ref": "AAAAAAF8NBWUC/2FDkU="
+							},
+							"name": "名称"
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAF8NBnSXf3p+pE=",
+							"_parent": {
+								"$ref": "AAAAAAF8NBWUC/2FDkU="
+							},
+							"name": "编号"
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAF8NB394P3wyRk=",
+							"_parent": {
+								"$ref": "AAAAAAF8NBWUC/2FDkU="
+							},
+							"name": "类别"
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAF8NB+FGP33UTQ=",
+							"_parent": {
+								"$ref": "AAAAAAF8NBWUC/2FDkU="
+							},
+							"name": "价格"
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAF8NCBS8v3+vdI=",
+							"_parent": {
+								"$ref": "AAAAAAF8NBWUC/2FDkU="
+							},
+							"name": "摘要信息"
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAF8NCEIMP4FBcw=",
+							"_parent": {
+								"$ref": "AAAAAAF8NBWUC/2FDkU="
+							},
+							"name": "状态"
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAF8NCEkFP4MeOc=",
+							"_parent": {
+								"$ref": "AAAAAAF8NBWUC/2FDkU="
+							},
+							"name": "当前所有者",
+							"ownedElements": [
+								{
+									"_type": "UMLConstraint",
+									"_id": "AAAAAAF8NCHlYv4T8Gg=",
+									"_parent": {
+										"$ref": "AAAAAAF8NCEkFP4MeOc="
+									},
+									"name": "Statement",
+									"specification": "有可能与状态重复\n但状态是借出/未借出，通常会独立成为属性"
+								}
+							]
+						}
+					]
+				},
+				{
+					"_type": "UMLClass",
+					"_id": "AAAAAAF8NCWLlP4aMz0=",
+					"_parent": {
+						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
+					},
+					"name": "学生",
+					"attributes": [
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAF8NCX3Cv5GXtw=",
+							"_parent": {
+								"$ref": "AAAAAAF8NCWLlP4aMz0="
+							},
+							"name": "姓名"
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAF8NCYbrf5NjiM=",
+							"_parent": {
+								"$ref": "AAAAAAF8NCWLlP4aMz0="
+							},
+							"name": "班级年级"
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAF8NCc/PP5UkZ8=",
+							"_parent": {
+								"$ref": "AAAAAAF8NCWLlP4aMz0="
+							},
+							"name": "学号"
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAF8NCdme/5bq4M=",
+							"_parent": {
+								"$ref": "AAAAAAF8NCWLlP4aMz0="
+							},
+							"name": "信用评价"
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAF8NCkjhf5jYOc=",
+							"_parent": {
+								"$ref": "AAAAAAF8NCWLlP4aMz0="
+							},
+							"name": "当前借阅数量"
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAF8NClzdP5xGN8=",
+							"_parent": {
+								"$ref": "AAAAAAF8NCWLlP4aMz0="
+							},
+							"name": "当前借阅图书信息列表"
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAF8NClIv/5qPP0=",
+							"_parent": {
+								"$ref": "AAAAAAF8NCWLlP4aMz0="
+							},
+							"name": "可借阅数量"
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAF8NCxsmP55csA=",
+							"_parent": {
+								"$ref": "AAAAAAF8NCWLlP4aMz0="
+							},
+							"name": "希望借阅图书信息列表"
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAF8NCzlw/6ARQk=",
+							"_parent": {
+								"$ref": "AAAAAAF8NCWLlP4aMz0="
+							},
+							"name": "共应缴赔偿金额"
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAF8NC1RMv6HpDM=",
+							"_parent": {
+								"$ref": "AAAAAAF8NCWLlP4aMz0="
+							},
+							"name": "已缴赔偿金额"
+						}
+					],
+					"operations": [
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAF8NC3cH/6P9ww=",
+							"_parent": {
+								"$ref": "AAAAAAF8NCWLlP4aMz0="
+							},
+							"name": "获取书籍",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAF8NC9OW/6WS8w=",
+									"_parent": {
+										"$ref": "AAAAAAF8NC3cH/6P9ww="
+									},
+									"name": "Object 书"
+								}
+							]
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAF8NDC4bf6svlE=",
+							"_parent": {
+								"$ref": "AAAAAAF8NCWLlP4aMz0="
+							},
+							"name": "请求借阅书籍",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAF8NDF5ZP61D08=",
+									"_parent": {
+										"$ref": "AAAAAAF8NDC4bf6svlE="
+									},
+									"name": "List 希望借阅书籍信息列表",
+									"type": ""
+								}
+							]
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAF8NC9O6/6Yk/Y=",
+							"_parent": {
+								"$ref": "AAAAAAF8NCWLlP4aMz0="
+							},
+							"name": "请求归还书籍",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAF8NC+exv6fgCM=",
+									"_parent": {
+										"$ref": "AAAAAAF8NC9O6/6Yk/Y="
+									},
+									"name": "List 当前借阅图书信息列表"
+								}
+							]
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAF8NC+9kv6jzsk=",
+							"_parent": {
+								"$ref": "AAAAAAF8NCWLlP4aMz0="
+							},
+							"name": "查看已借阅书籍列表",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAF8NDIrW/64PhA=",
+									"_parent": {
+										"$ref": "AAAAAAF8NC+9kv6jzsk="
+									},
+									"name": "List 当前借阅图书列表",
+									"type": ""
+								}
+							]
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAF8NDIr5P66PzU=",
+							"_parent": {
+								"$ref": "AAAAAAF8NCWLlP4aMz0="
+							},
+							"name": "请求缴费",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAF8NDLnVf7BJwk=",
+									"_parent": {
+										"$ref": "AAAAAAF8NDIr5P66PzU="
+									},
+									"name": "double 共应缴金额",
+									"type": ""
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAF8NDLnVf7CeAQ=",
+									"_parent": {
+										"$ref": "AAAAAAF8NDIr5P66PzU="
+									},
+									"name": "double 已缴赔偿金额",
+									"type": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"_type": "UMLClass",
+					"_id": "AAAAAAF8NDQW0/7Ifmw=",
+					"_parent": {
+						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
+					},
+					"name": "图书管理员",
+					"attributes": [
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAF8NDRFY/7yF6E=",
+							"_parent": {
+								"$ref": "AAAAAAF8NDQW0/7Ifmw="
+							},
+							"name": "编号"
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAF8NDRkIv75MLo=",
+							"_parent": {
+								"$ref": "AAAAAAF8NDQW0/7Ifmw="
+							},
+							"name": "权限"
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAF8NDYYp/8Jio0=",
+							"_parent": {
+								"$ref": "AAAAAAF8NDQW0/7Ifmw="
+							},
+							"name": "操作书籍信息"
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAF8NDbxav8auns=",
+							"_parent": {
+								"$ref": "AAAAAAF8NDQW0/7Ifmw="
+							},
+							"name": "操作金额"
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAF8NDfzJ/8sDE4=",
+							"_parent": {
+								"$ref": "AAAAAAF8NDQW0/7Ifmw="
+							},
+							"name": "学生欠费表"
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAF8NDjNm/8zu+w=",
+							"_parent": {
+								"$ref": "AAAAAAF8NDQW0/7Ifmw="
+							},
+							"name": "全书籍列表"
+						}
+					],
+					"operations": [
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAF8NDZtLv8QTlI=",
+							"_parent": {
+								"$ref": "AAAAAAF8NDQW0/7Ifmw="
+							},
+							"name": "确认借阅图书",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAF8NDbCJP8YaKs=",
+									"_parent": {
+										"$ref": "AAAAAAF8NDZtLv8QTlI="
+									},
+									"name": "List 操作书籍信息"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAF8NDl9+f87Gv0=",
+									"_parent": {
+										"$ref": "AAAAAAF8NDZtLv8QTlI="
+									},
+									"name": "List 全书籍列表"
+								}
+							]
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAF8NDTeov8A7c4=",
+							"_parent": {
+								"$ref": "AAAAAAF8NDQW0/7Ifmw="
+							},
+							"name": "确认归还书籍",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAF8NDYKAf8HSSA=",
+									"_parent": {
+										"$ref": "AAAAAAF8NDTeov8A7c4="
+									},
+									"name": "List 操作书籍信息"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAF8NDpQy/8/Wl8=",
+									"_parent": {
+										"$ref": "AAAAAAF8NDTeov8A7c4="
+									},
+									"name": "List 全书籍列表",
+									"type": ""
+								}
+							]
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAF8NDcsxf8hEC0=",
+							"_parent": {
+								"$ref": "AAAAAAF8NDQW0/7Ifmw="
+							},
+							"name": "确认缴费",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAF8NDffXf8ouRI=",
+									"_parent": {
+										"$ref": "AAAAAAF8NDcsxf8hEC0="
+									},
+									"name": "double 操作金额",
+									"type": ""
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAF8NDffXf8pR8E=",
+									"_parent": {
+										"$ref": "AAAAAAF8NDcsxf8hEC0="
+									},
+									"name": "List 学生欠费表",
+									"type": ""
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}
