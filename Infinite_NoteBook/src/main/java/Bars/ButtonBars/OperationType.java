@@ -9,5 +9,5 @@ package Bars.ButtonBars;
  * @author gzy
  */
 public enum OperationType {
-    NO_OP ,Undo,Redo,Copy_Block,Cut_Block,Delete_Block,Import,Export,Compile,Display,Compile_Display,Archive_Block
+    NO_OP,Move_Up,Move_Down,Undo,Redo,Copy_Block,Cut_Block,Delete_Block,Import,Export,Compile,Display,Compile_Display,Archive_Block
 }

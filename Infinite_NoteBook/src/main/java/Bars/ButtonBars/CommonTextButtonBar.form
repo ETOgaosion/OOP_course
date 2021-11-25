@@ -147,18 +147,20 @@
     <Component class="javax.swing.JComboBox" name="operationsComboBox">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="11">
-            <StringItem index="0" value="Undo"/>
-            <StringItem index="1" value="Redo"/>
-            <StringItem index="2" value="Copy Block"/>
-            <StringItem index="3" value="Cut Block"/>
-            <StringItem index="4" value="Delete Block"/>
-            <StringItem index="5" value="Import"/>
-            <StringItem index="6" value="Export"/>
-            <StringItem index="7" value="Compile"/>
-            <StringItem index="8" value="Display"/>
-            <StringItem index="9" value="Compile &amp; Display"/>
-            <StringItem index="10" value="Archive Block"/>
+          <StringArray count="13">
+            <StringItem index="0" value="Move Up"/>
+            <StringItem index="1" value="Move Down"/>
+            <StringItem index="2" value="Undo"/>
+            <StringItem index="3" value="Redo"/>
+            <StringItem index="4" value="Copy Block"/>
+            <StringItem index="5" value="Cut Block"/>
+            <StringItem index="6" value="Delete Block"/>
+            <StringItem index="7" value="Import"/>
+            <StringItem index="8" value="Export"/>
+            <StringItem index="9" value="Compile"/>
+            <StringItem index="10" value="Display"/>
+            <StringItem index="11" value="Compile &amp; Display"/>
+            <StringItem index="12" value="Archive Block"/>
           </StringArray>
         </Property>
       </Properties>
