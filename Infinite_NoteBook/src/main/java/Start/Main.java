@@ -48,6 +48,11 @@ public class Main extends javax.swing.JFrame {
         jCheckBox1.setBounds(330, 400, 106, 23);
 
         jButton1.setText("jButton1");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
         jPanel1.add(jButton1);
         jButton1.setBounds(330, 450, 97, 29);
 
@@ -123,6 +128,15 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
 
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+        this.setVisible(false);
+        mainWindow = new MainWindow();
+        mainWindow.setVisible(true);
+        mainWindow.setBounds(0, 0, 1400, 960);
+        this.dispose();
+    }//GEN-LAST:event_jButton1MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -159,6 +173,8 @@ public class Main extends javax.swing.JFrame {
             }
         });
     }
+    
+    private MainWindow mainWindow;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel backgroundLabel;

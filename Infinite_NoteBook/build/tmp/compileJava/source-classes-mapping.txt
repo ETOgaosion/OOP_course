@@ -1,90 +1,81 @@
-Bars/SideBar/TitleTreeBar.java
- Bars.SideBar.TitleTreeBar
+Blocks/TableBlock.java
+ Blocks.TableBlock
 Blocks/CompileStrategy/CommonTextCompiler.java
  Blocks.CompileStrategy.CommonTextCompiler
 Bars/SideBar/LabelBlock.java
  Bars.SideBar.LabelBlock
-Blocks/CompileStrategy/CodeCompiler.java
- Blocks.CompileStrategy.CodeCompiler
+Blocks/MediaBlock.java
+ Blocks.MediaBlock
+ Blocks.MediaBlock$1
 Blocks/CompileStrategy/CompilerFactory.java
  Blocks.CompileStrategy.CompilerFactory
  Blocks.CompileStrategy.CompilerFactory$1
-Blocks/CompileStrategy/TitleCompiler.java
- Blocks.CompileStrategy.TitleCompiler
-Blocks/CompileStrategy/BlankCompiler.java
- Blocks.CompileStrategy.BlankCompiler
-Start/MainWindow.java
- Start.MainWindow
- Start.MainWindow$1
- Start.MainWindow$2
- Start.MainWindow$3
-Blocks/CompileStrategy/VideoCompiler.java
- Blocks.CompileStrategy.VideoCompiler
-Bars/SideBar/FileLabelBlock.java
- Bars.SideBar.FileLabelBlock
-Bars/SideBar/FileTreeBar.java
- Bars.SideBar.FileTreeBar
-Blocks/BlockType.java
- Blocks.BlockType
-Bars/ButtonBars/MainWindowButtonBar.java
- Bars.ButtonBars.MainWindowButtonBar
- Bars.ButtonBars.MainWindowButtonBar$1
- Bars.ButtonBars.MainWindowButtonBar$2
-Blocks/CompileStrategy/Compiler.java
- Blocks.CompileStrategy.Compiler
-Blocks/CompileStrategy/FormulaCompiler.java
- Blocks.CompileStrategy.FormulaCompiler
-Start/Main.java
- Start.Main
- Start.Main$1
- Start.Main$2
- Start.Main$3
-Blocks/OutputBlock.java
- Blocks.OutputBlock
-Blocks/CompileStrategy/TableCompiler.java
- Blocks.CompileStrategy.TableCompiler
-Blocks/CompileStrategy/MarkdownCompiler.java
- Blocks.CompileStrategy.MarkdownCompiler
-Blocks/CompileStrategy/ImageCompiler.java
- Blocks.CompileStrategy.ImageCompiler
-Bars/SideBar/GitTreeBar.java
- Bars.SideBar.GitTreeBar
-Blocks/Block.java
- Blocks.Block
-Blocks/TableBlock.java
- Blocks.TableBlock
-Blocks/MediaBlock.java
- Blocks.MediaBlock
 Bars/ButtonBars/CommonTextButtonBar.java
  Bars.ButtonBars.CommonTextButtonBar
+ Bars.ButtonBars.CommonTextButtonBar$1
+ Bars.ButtonBars.CommonTextButtonBar$2
+ Bars.ButtonBars.CommonTextButtonBar$3
+ Bars.ButtonBars.CommonTextButtonBar$4
+ Bars.ButtonBars.CommonTextButtonBar$5
+Blocks/CompileStrategy/BlankCompiler.java
+ Blocks.CompileStrategy.BlankCompiler
 Blocks/InfiniteTitle.java
  Blocks.InfiniteTitle
 Bars/ButtonBars/BlankButtonBar.java
  Bars.ButtonBars.BlankButtonBar
+Bars/SideBar/FileLabelBlock.java
+ Bars.SideBar.FileLabelBlock
 Blocks/RichTextBlock.java
  Blocks.RichTextBlock
 Blocks/CodeBlock.java
  Blocks.CodeBlock
 Blocks/OutputArea.java
  Blocks.OutputArea
+Blocks/CompileStrategy/Compiler.java
+ Blocks.CompileStrategy.Compiler
+Blocks/CompileStrategy/FormulaCompiler.java
+ Blocks.CompileStrategy.FormulaCompiler
+Blocks/BlockBasic.java
+ Blocks.BlockBasic
 Blocks/BlankBlock.java
  Blocks.BlankBlock
 Blocks/ImageBlock.java
  Blocks.ImageBlock
-Bars/ButtonBars/InputButtonBarFactory.java
- Bars.ButtonBars.InputButtonBarFactory
-Bars/ButtonBars/InputButtonBar.java
- Bars.ButtonBars.InputButtonBar
+Blocks/CompileStrategy/MarkdownCompiler.java
+ Blocks.CompileStrategy.MarkdownCompiler
+Blocks/CompileStrategy/ImageCompiler.java
+ Blocks.CompileStrategy.ImageCompiler
+Bars/SideBar/GitTreeBar.java
+ Bars.SideBar.GitTreeBar
+Start/MainWindow.java
+ Start.MainWindow
+ Start.MainWindow$1
+ Start.MainWindow$2
+ Start.MainWindow$3
 Blocks/HyperTextBlock.java
  Blocks.HyperTextBlock
 Bars/ButtonBars/CodeButtonBar.java
  Bars.ButtonBars.CodeButtonBar
+Bars/ButtonBars/MainWindowButtonBar.java
+ Bars.ButtonBars.MainWindowButtonBar
+ Bars.ButtonBars.MainWindowButtonBar$1
+ Bars.ButtonBars.MainWindowButtonBar$2
 Bars/ButtonBars/MediaButtonBar.java
  Bars.ButtonBars.MediaButtonBar
 Blocks/MarkdownBlock.java
  Blocks.MarkdownBlock
 Blocks/FormulaBlock.java
  Blocks.FormulaBlock
+Blocks/OutputBlock.java
+ Blocks.OutputBlock
+Bars/ButtonBars/OperationType.java
+ Bars.ButtonBars.OperationType
+Blocks/BlockType.java
+ Blocks.BlockType
+Blocks/CompileStrategy/VideoCompiler.java
+ Blocks.CompileStrategy.VideoCompiler
+Blocks/CompileStrategy/TableCompiler.java
+ Blocks.CompileStrategy.TableCompiler
 Bars/ButtonBars/OutputButtonBar.java
  Bars.ButtonBars.OutputButtonBar
  Bars.ButtonBars.OutputButtonBar$1
@@ -94,13 +85,28 @@ Bars/ButtonBars/OutputAreaButtonBar.java
  Bars.ButtonBars.OutputAreaButtonBar
  Bars.ButtonBars.OutputAreaButtonBar$1
  Bars.ButtonBars.OutputAreaButtonBar$2
+Bars/SideBar/FileTreeBar.java
+ Bars.SideBar.FileTreeBar
 Bars/ButtonBars/FormulaButtonBar.java
  Bars.ButtonBars.FormulaButtonBar
 Blocks/CommonTextBlock.java
  Blocks.CommonTextBlock
+ Blocks.CommonTextBlock$1
 Bars/ButtonBars/TableButtonBar.java
  Bars.ButtonBars.TableButtonBar
+Blocks/CompileStrategy/TitleCompiler.java
+ Blocks.CompileStrategy.TitleCompiler
+Blocks/CompileStrategy/CodeCompiler.java
+ Blocks.CompileStrategy.CodeCompiler
+Bars/SideBar/TitleTreeBar.java
+ Bars.SideBar.TitleTreeBar
 Bars/ButtonBars/MarkdownButtonBar.java
  Bars.ButtonBars.MarkdownButtonBar
 Bars/ButtonBars/HyperTextButtonBar.java
  Bars.ButtonBars.HyperTextButtonBar
+Start/Main.java
+ Start.Main
+ Start.Main$1
+ Start.Main$2
+ Start.Main$3
+ Start.Main$4
