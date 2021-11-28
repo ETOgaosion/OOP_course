@@ -5,6 +5,20 @@
 package Bars.ButtonBars;
 
 import Blocks.*;
+import Blocks.BlockType;
+import static Blocks.BlockType.BLANK;
+import static Blocks.BlockType.COMMONTEXT;
+import static Blocks.BlockType.CODE;
+import static Blocks.BlockType.FORMULA;
+import static Blocks.BlockType.HYPERTEXT;
+import static Blocks.BlockType.IMAGE;
+import static Blocks.BlockType.MARKDOWN;
+import static Blocks.BlockType.RICHTEXT;
+import static Blocks.BlockType.TITLE;
+import static Blocks.BlockType.MEDIA;
+import static Blocks.BlockType.IMAGE;
+import static Blocks.BlockType.VIDEO;
+import static Blocks.BlockType.TABLE;
 
 /**
  *
@@ -15,9 +29,10 @@ public class BlankButtonBar extends javax.swing.JPanel {
     /**
      * Creates new form BlankButtonBar
      */
-    public BlankButtonBar(BlankBlock parentBlock) {
+    public BlankButtonBar(BlankBlock parentBlock,BlockType thisType) {
         initComponents();
         parentBlankBlock = parentBlock;
+        type = thisType;
     }
     
     protected void constructSons(){
@@ -54,6 +69,16 @@ public class BlankButtonBar extends javax.swing.JPanel {
         setOpaque(false);
 
         changeButton.setText("Change");
+        changeButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeButtonMouseClicked(evt);
+            }
+        });
+        changeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                changeButtonActionPerformed(evt);
+            }
+        });
 
         blockTypeComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Common Text Block", "Code Block", "HyperText Block", "Markdown Block", "Formula Block", "Rich Text Block", "Infinite Title Block", "Media Block", "Image Block", "Video Block", "Table Block" }));
 
@@ -111,9 +136,41 @@ public class BlankButtonBar extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void changeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_changeButtonMouseClicked
+        // TODO add your handling code here:
+        BlockType targetBlockType;
+        switch(type){
+            case BLANK->{
+                targetBlockType = parentBlankBlock.getNewBlockType(blockTypeComboBox.getSelectedIndex());
+                parentBlankBlock.changeBlock(targetBlockType);
+            }
+            case MEDIA,IMAGE,VIDEO->{
+                targetBlockType = parentMediaBlock.getNewBlockType(blockTypeComboBox.getSelectedIndex());
+                parentMediaBlock.changeBlock(targetBlockType);
+            }
+        }
+        
+    }//GEN-LAST:event_changeButtonMouseClicked
+
+    private void changeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changeButtonActionPerformed
+        // TODO add your handling code here:
+        BlockType targetBlockType;
+        switch(type){
+            case BLANK->{
+                targetBlockType = parentBlankBlock.getNewBlockType(blockTypeComboBox.getSelectedIndex());
+                parentBlankBlock.changeBlock(targetBlockType);
+            }
+            case MEDIA,IMAGE,VIDEO->{
+                targetBlockType = parentMediaBlock.getNewBlockType(blockTypeComboBox.getSelectedIndex());
+                parentMediaBlock.changeBlock(targetBlockType);
+            }
+        }
+    }//GEN-LAST:event_changeButtonActionPerformed
+
 
     private BlankBlock parentBlankBlock;
     private MediaBlock parentMediaBlock;
+    private BlockType type;
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> blockTypeComboBox;

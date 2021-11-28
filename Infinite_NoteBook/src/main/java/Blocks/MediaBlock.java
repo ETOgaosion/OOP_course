@@ -20,6 +20,23 @@ public class MediaBlock extends javax.swing.JPanel {
         parentMainWindow = parentWindow;
         mediaBlockBasic.setMasterMeidaBlock(this);
     }
+    
+    
+    public boolean setID(int ID){
+        return mediaBlockBasic.setID(ID);
+    }
+    
+    public int getID(){
+        return mediaBlockBasic.getID();
+    }
+    
+    public boolean changeBlock(BlockType newBlockType){
+        return parentMainWindow.changeBlock(mediaBlockBasic.getID(), newBlockType);
+    }
+    
+    public BlockType getNewBlockType(int comboxIndex){
+        return mediaBlockBasic.getNewBlockType(comboxIndex);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.

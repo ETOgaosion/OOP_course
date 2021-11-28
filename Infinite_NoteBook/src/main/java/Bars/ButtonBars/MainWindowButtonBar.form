@@ -19,16 +19,18 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
-              <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="appendBlockButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="deleteBlockButton" min="-2" max="-2" attributes="0"/>
+              <Component id="blockTypeComboBox" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="popBlockButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="importButton" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="exportButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
+              <Component id="exportButton" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
               <Component id="searchTextField" min="-2" pref="201" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="doSearchButton" min="-2" max="-2" attributes="0"/>
@@ -36,9 +38,9 @@
               <Component id="doReplaceButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="replaceAllButton" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="172" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
               <Component id="previewButton" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -48,7 +50,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="appendBlockButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="deleteBlockButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="popBlockButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="importButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="exportButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="previewButton" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -56,6 +58,7 @@
                   <Component id="doSearchButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="doReplaceButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="replaceAllButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="blockTypeComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
@@ -67,11 +70,17 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Append Block (+)"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="appendBlockButtonActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="deleteBlockButton">
+    <Component class="javax.swing.JButton" name="popBlockButton">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Delete Block (-)"/>
+        <Property name="text" type="java.lang.String" value="Pop Block (-)"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="popBlockButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="importButton">
       <Properties>
@@ -110,6 +119,29 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Replace All"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="blockTypeComboBox">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="12">
+            <StringItem index="0" value="Common Text"/>
+            <StringItem index="1" value="Code"/>
+            <StringItem index="2" value="HyperText"/>
+            <StringItem index="3" value="Markdown"/>
+            <StringItem index="4" value="Formula"/>
+            <StringItem index="5" value="Rich Text"/>
+            <StringItem index="6" value="Infinite Title"/>
+            <StringItem index="7" value="Media"/>
+            <StringItem index="8" value="Image"/>
+            <StringItem index="9" value="Video"/>
+            <StringItem index="10" value="Table"/>
+            <StringItem index="11" value="Blank"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>

@@ -4,6 +4,7 @@
  */
 package Blocks;
 import Blocks.CompileStrategy.*;
+import Blocks.BlockType;
 import Bars.ButtonBars.BlankButtonBar;
 import Start.*;
 
@@ -23,6 +24,22 @@ public class BlankBlock extends javax.swing.JPanel {
         initComponents();
         initComponentsManually();
         parentMainWindow = parentWindow;
+    }
+    
+    public boolean setID(int ID){
+        return blankBlockBasic.setID(ID);
+    }
+    
+    public int getID(){
+        return blankBlockBasic.getID();
+    }
+    
+    public boolean changeBlock(BlockType newBlockType){
+        return parentMainWindow.changeBlock(blankBlockBasic.getID(), newBlockType);
+    }
+    
+    public BlockType getNewBlockType(int comboxIndex){
+        return blankBlockBasic.getNewBlockType(comboxIndex);
     }
     
     
@@ -53,7 +70,7 @@ public class BlankBlock extends javax.swing.JPanel {
 
     
     private void initComponentsManually(){
-        blankButtonBar = new Bars.ButtonBars.BlankButtonBar(this);
+        blankButtonBar = new Bars.ButtonBars.BlankButtonBar(this,BlockType.BLANK);
         blankButtonBar.setBounds(0, 0, 650, 70);
         add(blankButtonBar);
     }

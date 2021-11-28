@@ -75,6 +75,10 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Change"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="changeButtonMouseClicked"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="changeButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JComboBox" name="blockTypeComboBox">
       <Properties>

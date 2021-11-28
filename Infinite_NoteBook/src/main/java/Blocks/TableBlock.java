@@ -21,6 +21,19 @@ public class TableBlock extends javax.swing.JPanel {
         parentMainWindow = parentWindow;
         tableBlockBasic.setMasterTableBlock(this);
     }
+    
+    
+    public boolean setID(int ID){
+        return tableBlockBasic.setID(ID);
+    }
+    
+    public int getID(){
+        return tableBlockBasic.getID();
+    }
+    
+    public boolean changeBlock(BlockType newBlockType){
+        return parentMainWindow.changeBlock(tableBlockBasic.getID(), newBlockType);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.

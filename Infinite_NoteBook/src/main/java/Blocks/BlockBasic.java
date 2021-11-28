@@ -4,7 +4,19 @@
  */
 package Blocks;
 
+import static Blocks.BlockType.BLANK;
+import static Blocks.BlockType.CODE;
+import static Blocks.BlockType.COMMONTEXT;
+import static Blocks.BlockType.FORMULA;
+import static Blocks.BlockType.IMAGE;
+import static Blocks.BlockType.MARKDOWN;
+import static Blocks.BlockType.MEDIA;
+import static Blocks.BlockType.RICHTEXT;
+import static Blocks.BlockType.TABLE;
+import static Blocks.BlockType.TITLE;
+import static Blocks.BlockType.VIDEO;
 import Blocks.CompileStrategy.CompilerFactory;
+import java.lang.constant.ConstantDescs;
 
 /**
  *
@@ -48,6 +60,44 @@ public class BlockBasic {
     }
     
     
+    
+    public BlockType getNewBlockType(int comboxIndex){
+        switch(comboxIndex){
+            case 0->{
+                return COMMONTEXT;
+            }
+            case 1->{
+                return CODE;
+            }
+            case 2->{
+                return MARKDOWN;
+            }
+            case 3->{
+                return FORMULA;
+            }
+            case 4->{
+                return RICHTEXT;
+            }
+            case 5->{
+                return TITLE;
+            }
+            case 6->{
+                return MEDIA;
+            }
+            case 7->{
+                return IMAGE;
+            }
+            case 8->{
+                return VIDEO;
+            }
+            case 9->{
+                return TABLE;
+            }
+            default->{
+                return BLANK;
+            }
+        }
+    }
     
     public boolean switchBlockType(BlockType newType){
         type = newType;

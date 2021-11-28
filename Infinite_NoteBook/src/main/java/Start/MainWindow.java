@@ -8,6 +8,8 @@ import java.awt.Color;
 import java.util.ArrayList;
 import Blocks.*;
 import Blocks.BlockType;
+import static Blocks.BlockType.BLANK;
+import static Blocks.BlockType.COMMONTEXT;
 import static Blocks.BlockType.CODE;
 import static Blocks.BlockType.FORMULA;
 import static Blocks.BlockType.HYPERTEXT;
@@ -15,7 +17,10 @@ import static Blocks.BlockType.IMAGE;
 import static Blocks.BlockType.MARKDOWN;
 import static Blocks.BlockType.RICHTEXT;
 import static Blocks.BlockType.TITLE;
+import static Blocks.BlockType.MEDIA;
+import static Blocks.BlockType.IMAGE;
 import static Blocks.BlockType.VIDEO;
+import static Blocks.BlockType.TABLE;
 
 /**
  *
@@ -176,8 +181,8 @@ public class MainWindow extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void initComponentsManually(){
-        mainButtonBar = new Bars.ButtonBars.MainWindowButtonBar();
-        mainButtonBar.setBounds(0, 0, 1400, 41);
+        mainButtonBar = new Bars.ButtonBars.MainWindowButtonBar(this);
+        mainButtonBar.setBounds(50, 0, 1300, 41);
         MainLayer.add(mainButtonBar);
         MainLayer.moveToFront(mainButtonBar);
     }
@@ -213,6 +218,8 @@ public class MainWindow extends javax.swing.JFrame {
                 blankBlockList.add(new BlankBlock(this));
                 index = blankBlockList.size() - 1;
                 blankBlockList.get(index).setBounds(100, height, 1200, 100);
+                totalBlockList.add(new BlockDocument(BLANK,height));
+                blankBlockList.get(index).setID(totalBlockList.size() - 1);
                 curBlockHeight = 100;
             }
             case COMMONTEXT->{
@@ -220,58 +227,79 @@ public class MainWindow extends javax.swing.JFrame {
                 AddBlockReturnValue ret = addInputBlock(height);
                 index = ret.index;
                 curBlockHeight = ret.height;
+                totalBlockList.add(new BlockDocument(COMMONTEXT,height));
+                inputBlockList.get(index).setID(totalBlockList.size() - 1);
             }
             case CODE->{
                 inputBlockList.add(new CodeBlock(this));
                 AddBlockReturnValue ret = addInputBlock(height);
                 index = ret.index;
                 curBlockHeight = ret.height;
+                totalBlockList.add(new BlockDocument(CODE,height));
+                inputBlockList.get(index).setID(totalBlockList.size() - 1);
             }
             case HYPERTEXT->{
                 inputBlockList.add(new HyperTextBlock(this));
                 AddBlockReturnValue ret = addInputBlock(height);
                 index = ret.index;
                 curBlockHeight = ret.height;
+                totalBlockList.add(new BlockDocument(HYPERTEXT,height));
+                inputBlockList.get(index).setID(totalBlockList.size() - 1);
             }
             case MARKDOWN->{
                 inputBlockList.add(new MarkdownBlock(this));
                 AddBlockReturnValue ret = addInputBlock(height);
                 index = ret.index;
                 curBlockHeight = ret.height;
+                totalBlockList.add(new BlockDocument(MARKDOWN,height));
+                inputBlockList.get(index).setID(totalBlockList.size() - 1);
             }
             case FORMULA->{
                 inputBlockList.add(new FormulaBlock(this));
                 AddBlockReturnValue ret = addInputBlock(height);
                 index = ret.index;
                 curBlockHeight = ret.height;
+                totalBlockList.add(new BlockDocument(FORMULA,height));
+                inputBlockList.get(index).setID(totalBlockList.size() - 1);
             }
             case RICHTEXT->{
                 inputBlockList.add(new RichTextBlock(this));
                 AddBlockReturnValue ret = addInputBlock(height);
                 index = ret.index;
                 curBlockHeight = ret.height;
+                totalBlockList.add(new BlockDocument(RICHTEXT,height));
+                inputBlockList.get(index).setID(totalBlockList.size() - 1);
+                richTextToolBoxList.add(new RichTextToolBox());
+                inputBlockList.get(index).setID(totalBlockList.size() - 1);
             }
             case TITLE->{
                 inputBlockList.add(new InfiniteTitle(this));
                 AddBlockReturnValue ret = addInputBlock(height);
                 index = ret.index;
                 curBlockHeight = ret.height;
-                break;
+                totalBlockList.add(new BlockDocument(TITLE,height));
+                inputBlockList.get(index).setID(totalBlockList.size() - 1);
             }
             case MEDIA->{
                 mediaBlockList.add(new MediaBlock(this));
+                totalBlockList.add(new BlockDocument(MEDIA,height));
+                mediaBlockList.get(index).setID(totalBlockList.size() - 1);
                 AddBlockReturnValue ret = addMediaBlock(height);
                 index = ret.index;
                 curBlockHeight = ret.height;
             }
             case IMAGE->{
                 mediaBlockList.add(new ImageBlock(this));
+                totalBlockList.add(new BlockDocument(IMAGE,height));
+                mediaBlockList.get(index).setID(totalBlockList.size() - 1);
                 AddBlockReturnValue ret = addMediaBlock(height);
                 index = ret.index;
                 curBlockHeight = ret.height;
             }
             case VIDEO->{
                 mediaBlockList.add(new VideoBlock(this));
+                totalBlockList.add(new BlockDocument(VIDEO,height));
+                mediaBlockList.get(index).setID(totalBlockList.size() - 1);
                 AddBlockReturnValue ret = addMediaBlock(height);
                 index = ret.index;
                 curBlockHeight = ret.height;
@@ -280,11 +308,52 @@ public class MainWindow extends javax.swing.JFrame {
                 tableBlockList.add(new TableBlock(this));
                 index = tableBlockList.size() - 1;
                 tableBlockList.get(index).setBounds(100, height, 1200, 300);
+                totalBlockList.add(new BlockDocument(TABLE,height));
+                tableBlockList.get(index).setID(totalBlockList.size() - 1);
             }
             default->{
             }
         }
         return new AddBlockReturnValue(index,curBlockHeight);
+    }
+    
+    
+    public BlockDocument simplyRemoveBlock(int index){
+        if(index < 0 || index >= totalBlockList.size() || totalBlockList.isEmpty()){
+            return null;
+        }
+        BlockDocument deleteBlockDoc = totalBlockList.remove(index);
+        switch(deleteBlockDoc.blockType){
+            case BLANK->{
+                blankBlockList.remove(deleteBlockDoc.index);
+            }
+            case COMMONTEXT,CODE,HYPERTEXT,MARKDOWN,FORMULA,RICHTEXT,TITLE->{
+                inputBlockList.remove(deleteBlockDoc.index);
+            }
+            case MEDIA,IMAGE,VIDEO->{
+                mediaBlockList.remove(deleteBlockDoc.index);
+            }
+            case TABLE->{
+                tableBlockList.remove(deleteBlockDoc.index);
+            }
+            default->{
+            }
+        }
+        return deleteBlockDoc;
+    }
+    
+    public int simplyInsertBlock(int index, int height, BlockType newBlockType){
+        if(index < 0 || index >= totalBlockList.size() || totalBlockList.isEmpty()){
+            return -1;
+        }
+        int insertIndex = 0;
+        int curBlockHeight = 0;
+        AddBlockReturnValue ret = simplyAddBlock(newBlockType,height);
+        insertIndex = ret.index;
+        curBlockHeight = ret.height;
+        totalBlockList.add(index, new BlockDocument(newBlockType,height));
+        totalBlockList.get(index).height = curBlockHeight;
+        return curBlockHeight;
     }
     
     public boolean appendBlock(BlockType newBlockType){
@@ -330,43 +399,6 @@ public class MainWindow extends javax.swing.JFrame {
         return true;
     }
     
-    public BlockDocument simplyRemoveBlock(int index){
-        if(index < 0 || index >= totalBlockList.size() || totalBlockList.isEmpty()){
-            return null;
-        }
-        BlockDocument deleteBlockDoc = totalBlockList.remove(index);
-        switch(deleteBlockDoc.blockType){
-            case BLANK->{
-                blankBlockList.remove(deleteBlockDoc.index);
-            }
-            case COMMONTEXT,CODE,HYPERTEXT,MARKDOWN,FORMULA,RICHTEXT,TITLE->{
-                inputBlockList.remove(deleteBlockDoc.index);
-            }
-            case MEDIA,IMAGE,VIDEO->{
-                mediaBlockList.remove(deleteBlockDoc.index);
-            }
-            case TABLE->{
-                tableBlockList.remove(deleteBlockDoc.index);
-            }
-            default->{
-            }
-        }
-        return deleteBlockDoc;
-    }
-    
-    public int simplyInsertBlock(int index, int height, BlockType newBlockType){
-        if(index < 0 || index >= totalBlockList.size() || totalBlockList.isEmpty()){
-            return -1;
-        }
-        int insertIndex = 0;
-        int curBlockHeight = 0;
-        AddBlockReturnValue ret = simplyAddBlock(newBlockType,height);
-        insertIndex = ret.index;
-        curBlockHeight = ret.height;
-        totalBlockList.add(index, new BlockDocument(newBlockType,height));
-        totalBlockList.get(index).height = curBlockHeight;
-        return curBlockHeight;
-    }
     
     public boolean deleteBlock(int index){
         if(index < 0 || index >= totalBlockList.size() || totalBlockList.isEmpty()){
@@ -377,6 +409,10 @@ public class MainWindow extends javax.swing.JFrame {
         adjustBlockVerticalPosition(index, deleteBlockDocument.height);
         rendering();
         return true;
+    }
+    
+    public boolean popBlock(){
+        return deleteBlock(totalBlockList.size() - 1);
     }
     
     public boolean changeBlock(int index, BlockType newType){
@@ -475,6 +511,7 @@ public class MainWindow extends javax.swing.JFrame {
     private ArrayList<CommonTextBlock> inputBlockList = new ArrayList<>();
     private ArrayList<MediaBlock> mediaBlockList = new ArrayList<>();
     private ArrayList<TableBlock> tableBlockList = new ArrayList<>();
+    private ArrayList<RichTextToolBox> richTextToolBoxList = new ArrayList<>();
     
     private class BlockDocument{
         public BlockType blockType = BlockType.BLANK;

@@ -4,6 +4,20 @@
  */
 package Bars.ButtonBars;
 
+import Blocks.BlockType;
+import static Blocks.BlockType.BLANK;
+import static Blocks.BlockType.CODE;
+import static Blocks.BlockType.COMMONTEXT;
+import static Blocks.BlockType.FORMULA;
+import static Blocks.BlockType.IMAGE;
+import static Blocks.BlockType.MARKDOWN;
+import static Blocks.BlockType.MEDIA;
+import static Blocks.BlockType.RICHTEXT;
+import static Blocks.BlockType.TABLE;
+import static Blocks.BlockType.TITLE;
+import static Blocks.BlockType.VIDEO;
+import Start.*;
+
 /**
  *
  * @author gzy
@@ -13,10 +27,48 @@ public class MainWindowButtonBar extends javax.swing.JPanel {
     /**
      * Creates new form MainWindowButtonBar
      */
-    public MainWindowButtonBar() {
+    public MainWindowButtonBar(MainWindow parent) {
         initComponents();
+        parentMainWindow = parent;
     }
-
+        
+    private BlockType getNewBlockType(int comboxIndex){
+        switch(comboxIndex){
+            case 0->{
+                return COMMONTEXT;
+            }
+            case 1->{
+                return CODE;
+            }
+            case 2->{
+                return MARKDOWN;
+            }
+            case 3->{
+                return FORMULA;
+            }
+            case 4->{
+                return RICHTEXT;
+            }
+            case 5->{
+                return TITLE;
+            }
+            case 6->{
+                return MEDIA;
+            }
+            case 7->{
+                return IMAGE;
+            }
+            case 8->{
+                return VIDEO;
+            }
+            case 9->{
+                return TABLE;
+            }
+            default->{
+                return BLANK;
+            }
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,7 +79,7 @@ public class MainWindowButtonBar extends javax.swing.JPanel {
     private void initComponents() {
 
         appendBlockButton = new javax.swing.JButton();
-        deleteBlockButton = new javax.swing.JButton();
+        popBlockButton = new javax.swing.JButton();
         importButton = new javax.swing.JButton();
         exportButton = new javax.swing.JButton();
         previewButton = new javax.swing.JButton();
@@ -35,12 +87,23 @@ public class MainWindowButtonBar extends javax.swing.JPanel {
         doSearchButton = new javax.swing.JButton();
         doReplaceButton = new javax.swing.JButton();
         replaceAllButton = new javax.swing.JButton();
+        blockTypeComboBox = new javax.swing.JComboBox<>();
 
         setOpaque(false);
 
         appendBlockButton.setText("Append Block (+)");
+        appendBlockButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                appendBlockButtonActionPerformed(evt);
+            }
+        });
 
-        deleteBlockButton.setText("Delete Block (-)");
+        popBlockButton.setText("Pop Block (-)");
+        popBlockButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                popBlockButtonActionPerformed(evt);
+            }
+        });
 
         importButton.setText("Import");
 
@@ -64,20 +127,24 @@ public class MainWindowButtonBar extends javax.swing.JPanel {
 
         replaceAllButton.setText("Replace All");
 
+        blockTypeComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Common Text", "Code", "HyperText", "Markdown", "Formula", "Rich Text", "Infinite Title", "Media", "Image", "Video", "Table", "Blank" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(60, 60, 60)
+                .addContainerGap()
                 .addComponent(appendBlockButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(deleteBlockButton)
+                .addComponent(blockTypeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(popBlockButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(importButton)
-                .addGap(18, 18, 18)
-                .addComponent(exportButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(exportButton)
+                .addGap(18, 18, 18)
                 .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(doSearchButton)
@@ -85,9 +152,9 @@ public class MainWindowButtonBar extends javax.swing.JPanel {
                 .addComponent(doReplaceButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(replaceAllButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 172, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(previewButton)
-                .addGap(61, 61, 61))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -95,14 +162,15 @@ public class MainWindowButtonBar extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(appendBlockButton)
-                    .addComponent(deleteBlockButton)
+                    .addComponent(popBlockButton)
                     .addComponent(importButton)
                     .addComponent(exportButton)
                     .addComponent(previewButton)
                     .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(doSearchButton)
                     .addComponent(doReplaceButton)
-                    .addComponent(replaceAllButton))
+                    .addComponent(replaceAllButton)
+                    .addComponent(blockTypeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -115,14 +183,26 @@ public class MainWindowButtonBar extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_doReplaceButtonActionPerformed
 
+    private void appendBlockButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_appendBlockButtonActionPerformed
+        // TODO add your handling code here:
+        parentMainWindow.appendBlock(getNewBlockType(blockTypeComboBox.getSelectedIndex()));
+    }//GEN-LAST:event_appendBlockButtonActionPerformed
+
+    private void popBlockButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popBlockButtonActionPerformed
+        // TODO add your handling code here:
+        parentMainWindow.popBlock();
+    }//GEN-LAST:event_popBlockButtonActionPerformed
+
+    private MainWindow parentMainWindow;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton appendBlockButton;
-    private javax.swing.JButton deleteBlockButton;
+    private javax.swing.JComboBox<String> blockTypeComboBox;
     private javax.swing.JButton doReplaceButton;
     private javax.swing.JButton doSearchButton;
     private javax.swing.JButton exportButton;
     private javax.swing.JButton importButton;
+    private javax.swing.JButton popBlockButton;
     private javax.swing.JButton previewButton;
     private javax.swing.JButton replaceAllButton;
     private javax.swing.JTextField searchTextField;

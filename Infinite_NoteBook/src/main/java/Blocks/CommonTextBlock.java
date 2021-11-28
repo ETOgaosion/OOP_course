@@ -11,6 +11,7 @@ import Start.*;
 import javax.swing.undo.UndoManager;
 import javax.swing.event.UndoableEditEvent;
 import javax.swing.event.UndoableEditListener;
+import javax.swing.text.*;
 
 /**
  *
@@ -29,8 +30,16 @@ public class CommonTextBlock extends javax.swing.JPanel {
         inputTextBlockBasic.setMasterInputBlock(this);
     }
     
-    public boolean changeBlockType(BlockType newType){
-        return true;
+    public boolean setID(int ID){
+        return inputTextBlockBasic.setID(ID);
+    }
+    
+    public int getID(){
+        return inputTextBlockBasic.getID();
+    }
+    
+    public boolean changeBlock(BlockType newBlockType){
+        return parentMainWindow.changeBlock(inputTextBlockBasic.getID(), newBlockType);
     }
     
     public boolean whetherCanUndo(){
@@ -55,6 +64,10 @@ public class CommonTextBlock extends javax.swing.JPanel {
         }
         undoManager.redo();
         return true;
+    }
+    
+    public javax.swing.JTextPane getMainTextPane(){
+        return mainInputTextPane;
     }
 
     /**
