@@ -3,18 +3,17 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Bars.ButtonBars;
-
 import Blocks.*;
 
 /**
  *
  * @author gzy
  */
-public class FormulaButtonBar extends CommonTextButtonBar{
+public class TitleButtonBar extends CommonTextButtonBar{
 
-    public FormulaButtonBar(CommonTextBlock parentBlock) {
+    public TitleButtonBar(CommonTextBlock parentBlock) {
         super(parentBlock);
-        setTypeText("Fommula Block");
+        setTypeText("Title Block");
     }
     
 }

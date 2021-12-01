@@ -216,14 +216,16 @@ public class MainWindow extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void initComponentsManually(){
-        mainScrollPanel.getViewport().setOpaque(false);
-        mainScrollPanel.getViewport().setLayout(new GridLayout(1,1));
-        mainScrollPanel.setSize(new Dimension(1200,878));
-        mainScrollPanel.setPreferredSize(new Dimension(1200,878));
         mainPanel.setSize(new Dimension(1200,878));
         mainPanel.setPreferredSize(new Dimension(1200,878));
-        mainContainer.setLayout(new GridLayout(0,1));
-        mainScrollPanel.getViewport().setView(mainContainer);
+        mainScrollPanel.getViewport().setOpaque(false);
+        mainScrollPanel.getViewport().setLayout(null);
+        mainScrollPanel.setSize(new Dimension(1200,878));
+        mainScrollPanel.setPreferredSize(new Dimension(1200,878));
+        mainContainerPanel.setBounds(0,0,1200,878);
+        mainContainerPanel.setLayout(new GridLayout(0,1));
+        mainContainerPanel.setOpaque(false);
+        mainScrollPanel.getViewport().setView(mainContainerPanel);
         mainButtonBar = new Bars.ButtonBars.MainWindowButtonBar(this);
         mainButtonBar.setBounds(50, 0, 1300, 41);
         MainLayer.add(mainButtonBar);
@@ -266,7 +268,7 @@ public class MainWindow extends javax.swing.JFrame {
                 curBlockHeight = 100;
             }
             case COMMONTEXT->{
-                inputBlockList.add(new CommonTextBlock(this));
+                inputBlockList.add(new CommonTextBlock(this,COMMONTEXT));
                 AddBlockReturnValue ret = addInputBlock(height);
                 index = ret.index;
                 curBlockHeight = ret.height;
@@ -476,19 +478,19 @@ public class MainWindow extends javax.swing.JFrame {
         switch(currDocument.blockType){
             case BLANK->{
                 BlankBlock deleteBlankBlock = blankBlockList.get(currDocument.index);
-                mainContainer.remove(deleteBlankBlock);
+                mainContainerPanel.remove(deleteBlankBlock);
             }
             case COMMONTEXT,CODE,HYPERTEXT,MARKDOWN,FORMULA,RICHTEXT,TITLE->{
                 CommonTextBlock deleteCommonTextBlock = inputBlockList.get(currDocument.index);
-                mainContainer.remove(deleteCommonTextBlock);
+                mainContainerPanel.remove(deleteCommonTextBlock);
             }
             case MEDIA,IMAGE,VIDEO->{
                 MediaBlock deleteMediaBlock = mediaBlockList.get(currDocument.index);
-                mainContainer.remove(deleteMediaBlock);
+                mainContainerPanel.remove(deleteMediaBlock);
             }
             case TABLE->{
                 TableBlock deleteTableBlock = tableBlockList.get(currDocument.index);
-                mainContainer.remove(deleteTableBlock);
+                mainContainerPanel.remove(deleteTableBlock);
             }
             default->{
                 return false;
@@ -501,41 +503,51 @@ public class MainWindow extends javax.swing.JFrame {
         if(totalBlockList.isEmpty()){
             return false;
         }
-        if(totalHeight < 901){
-            mainScrollPanel.setSize(new Dimension(1200,totalHeight));
-            mainScrollPanel.setPreferredSize(new Dimension(1200,totalHeight));
-        }
-        mainScrollPanel.getViewport().setSize(new Dimension(1200,totalHeight));
-        mainScrollPanel.getViewport().setPreferredSize(new Dimension(1200,totalHeight));
-        mainContainer.setSize(new Dimension(1200,totalHeight));
-        mainContainer.setPreferredSize(new Dimension(1200,totalHeight));
+//        if(totalHeight < 901){
+//            mainScrollPanel.setSize(new Dimension(1200,totalHeight));
+//            mainScrollPanel.setPreferredSize(new Dimension(1200,totalHeight));
+//        }
+//        else{
+//            mainScrollPanel.setSize(new Dimension(1200,878));
+//            mainScrollPanel.setPreferredSize(new Dimension(1200,878));
+//        }
+        mainContainerPanel.setSize(new Dimension(1200,totalHeight - 50));
         for (int i = 0; i < totalBlockList.size(); i++) {
             BlockDocument currDocument = totalBlockList.get(i);
+            if(currDocument.rendered == true && currDocument.needreRender == false){
+                continue;
+            }
+            else if(currDocument.rendered == true && currDocument.needreRender == true){
+                removeBlockPhysically(currDocument);
+            }
             switch(currDocument.blockType){
                 case BLANK->{
                     BlankBlock renderBlankBlock = blankBlockList.get(currDocument.index);
                     renderBlankBlock.setOpaque(false);
-                    mainContainer.add(renderBlankBlock,null);
+                    mainContainerPanel.add(renderBlankBlock,null);
                 }
                 case COMMONTEXT,CODE,HYPERTEXT,MARKDOWN,FORMULA,RICHTEXT,TITLE->{
                     CommonTextBlock renderCommonTextBlock = inputBlockList.get(currDocument.index);
                     renderCommonTextBlock.setOpaque(false);
-                    mainContainer.add(renderCommonTextBlock,null);
+                    mainContainerPanel.add(renderCommonTextBlock,null);
                 }
                 case MEDIA,IMAGE,VIDEO->{
                     MediaBlock renderMediaBlock = mediaBlockList.get(currDocument.index);
                     renderMediaBlock.setOpaque(false);
-                    mainContainer.add(renderMediaBlock,null);
+                    mainContainerPanel.add(renderMediaBlock,null);
                 }
                 case TABLE->{
                     TableBlock renderTableBlock = tableBlockList.get(currDocument.index);
                     renderTableBlock.setOpaque(false);
-                    mainContainer.add(renderTableBlock,null);
+                    mainContainerPanel.add(renderTableBlock,null);
                 }
                 default->{
                     continue;
                 }
             }
+            mainContainerPanel.revalidate();
+            mainContainerPanel.repaint();
+            mainScrollPanel.setViewportView(mainContainerPanel);
             currDocument.rendered = true;
         }
         return true;
@@ -637,7 +649,7 @@ public class MainWindow extends javax.swing.JFrame {
     }
     
     private ArrayList<BlockDocument> totalBlockList = new ArrayList<>();
-    private java.awt.Container mainContainer = new Container();
+    private javax.swing.JPanel mainContainerPanel = new javax.swing.JPanel();
     private int totalHeight = 0;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

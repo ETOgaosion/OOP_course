@@ -12,7 +12,7 @@ import Blocks.*;
  */
 public class HyperTextButtonBar extends CommonTextButtonBar{
 
-    public HyperTextButtonBar(HyperTextBlock parentBlock) {
+    public HyperTextButtonBar(CommonTextBlock parentBlock) {
         super(parentBlock);
         setTypeText("HyperText Block");
     }

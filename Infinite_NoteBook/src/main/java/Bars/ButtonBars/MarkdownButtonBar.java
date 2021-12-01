@@ -12,7 +12,7 @@ import Blocks.*;
  */
 public class MarkdownButtonBar extends CommonTextButtonBar{
 
-    public MarkdownButtonBar(MarkdownBlock parentBlock) {
+    public MarkdownButtonBar(CommonTextBlock parentBlock) {
         super(parentBlock);
         setTypeText("Markdown Block");
     }

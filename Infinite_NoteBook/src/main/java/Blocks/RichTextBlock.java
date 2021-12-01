@@ -7,7 +7,7 @@ import javax.swing.text.StyledDocument;
 public class RichTextBlock extends CommonTextBlock{
 
     public RichTextBlock(MainWindow parenWindow) {
-        super(parenWindow);
+        super(parenWindow,BlockType.RICHTEXT);
         inputTextPane = getMainTextPane();
     }
     

@@ -24,9 +24,9 @@ public class CommonTextBlock extends javax.swing.JPanel {
      * Creates new form CommonTextBlock
      * @param parentWindow
      */
-    public CommonTextBlock(MainWindow parentWindow) {
+    public CommonTextBlock(MainWindow parentWindow, BlockType curBlockType) {
         initComponents();
-        initComponentsManually();
+        initComponentsManually(curBlockType);
         parentMainWindow = parentWindow;
         inputTextBlockBasic.setMasterInputBlock(this);
     }
@@ -120,10 +120,10 @@ public class CommonTextBlock extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void initComponentsManually(){
+    private void initComponentsManually(BlockType curBlockType){
         mainInputScrollPane.getViewport().setOpaque(false);
         lineNumScrollPane.getViewport().setOpaque(false);
-        commonTextButtonBar = new CommonTextButtonBar(this);
+        initCommonTextButtonBar(curBlockType);
         commonTextButtonBar.setBounds(0, 0, 650, 62);
         this.add(commonTextButtonBar);
         mainInputTextPane.getDocument().addUndoableEditListener(new UndoableEditListener(){
@@ -131,6 +131,29 @@ public class CommonTextBlock extends javax.swing.JPanel {
                 undoManager.addEdit(e.getEdit());
             }
         });
+    }
+    
+    public void initCommonTextButtonBar(BlockType thisBlockType){
+        switch(thisBlockType){
+            case COMMONTEXT->{
+                commonTextButtonBar = new CommonTextButtonBar(this);
+            }
+            case CODE->{
+                commonTextButtonBar = new CodeButtonBar(this);
+            }
+            case FORMULA->{
+                commonTextButtonBar = new FormulaButtonBar(this);
+            }
+            case HYPERTEXT->{
+                commonTextButtonBar = new HyperTextButtonBar(this);
+            }
+            case MARKDOWN->{
+                commonTextButtonBar = new MarkdownButtonBar(this);
+            }
+            case TITLE->{
+                commonTextButtonBar = new TitleButtonBar(this);
+            }
+        }
     }
     
     private CommonTextButtonBar commonTextButtonBar;
