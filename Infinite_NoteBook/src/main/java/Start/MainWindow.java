@@ -21,6 +21,11 @@ import static Blocks.BlockType.MEDIA;
 import static Blocks.BlockType.IMAGE;
 import static Blocks.BlockType.VIDEO;
 import static Blocks.BlockType.TABLE;
+import java.awt.Component;
+import java.awt.Container;
+import java.awt.Dimension;
+import java.awt.GridLayout;
+import javax.swing.JPanel;
 
 /**
  *
@@ -48,6 +53,8 @@ public class MainWindow extends javax.swing.JFrame {
         jMenuItem3 = new javax.swing.JMenuItem();
         MainLayer = new javax.swing.JLayeredPane();
         coverPanel = new javax.swing.JPanel();
+        mainPanel = new javax.swing.JPanel();
+        mainScrollPanel = new javax.swing.JScrollPane();
         backgroundLabel = new javax.swing.JLabel();
         mainMenuBar = new javax.swing.JMenuBar();
         workspaceMenu = new javax.swing.JMenu();
@@ -76,19 +83,47 @@ public class MainWindow extends javax.swing.JFrame {
 
         coverPanel.setBackground(new Color(0,0,0,75));
 
+        mainPanel.setOpaque(false);
+        mainPanel.setSize(new java.awt.Dimension(1200, 878));
+
+        mainScrollPanel.setBackground(new Color(0,0,0,0)
+        );
+        mainScrollPanel.setForeground(new Color(0,0,0,0)
+        );
+        mainScrollPanel.setOpaque(false);
+        mainScrollPanel.setPreferredSize(new java.awt.Dimension(1200, 878));
+        mainScrollPanel.setRequestFocusEnabled(false);
+        mainScrollPanel.setSize(new java.awt.Dimension(1200, 878));
+
+        javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
+        mainPanel.setLayout(mainPanelLayout);
+        mainPanelLayout.setHorizontalGroup(
+            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(mainScrollPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        mainPanelLayout.setVerticalGroup(
+            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(mainScrollPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout coverPanelLayout = new javax.swing.GroupLayout(coverPanel);
         coverPanel.setLayout(coverPanelLayout);
         coverPanelLayout.setHorizontalGroup(
             coverPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1390, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, coverPanelLayout.createSequentialGroup()
+                .addContainerGap(100, Short.MAX_VALUE)
+                .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(100, 100, 100))
         );
         coverPanelLayout.setVerticalGroup(
             coverPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 920, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, coverPanelLayout.createSequentialGroup()
+                .addGap(0, 42, Short.MAX_VALUE)
+                .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         MainLayer.add(coverPanel);
-        coverPanel.setBounds(0, 0, 1390, 920);
+        coverPanel.setBounds(0, 0, 1400, 920);
 
         backgroundLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/main_background.png"))); // NOI18N
         MainLayer.add(backgroundLabel);
@@ -170,7 +205,7 @@ public class MainWindow extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(MainLayer, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1391, Short.MAX_VALUE)
+            .addComponent(MainLayer, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -181,6 +216,14 @@ public class MainWindow extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void initComponentsManually(){
+        mainScrollPanel.getViewport().setOpaque(false);
+        mainScrollPanel.getViewport().setLayout(new GridLayout(1,1));
+        mainScrollPanel.setSize(new Dimension(1200,878));
+        mainScrollPanel.setPreferredSize(new Dimension(1200,878));
+        mainPanel.setSize(new Dimension(1200,878));
+        mainPanel.setPreferredSize(new Dimension(1200,878));
+        mainContainer.setLayout(new GridLayout(0,1));
+        mainScrollPanel.getViewport().setView(mainContainer);
         mainButtonBar = new Bars.ButtonBars.MainWindowButtonBar(this);
         mainButtonBar.setBounds(50, 0, 1300, 41);
         MainLayer.add(mainButtonBar);
@@ -200,13 +243,13 @@ public class MainWindow extends javax.swing.JFrame {
     
     private AddBlockReturnValue addInputBlock(int height){
         int index = inputBlockList.size() - 1;
-        inputBlockList.get(index).setBounds(100, height, 1200, 300);
+        inputBlockList.get(index).setBounds(0, 0, 1200, 300);
         return new AddBlockReturnValue(index,300);
     }
     
     private AddBlockReturnValue addMediaBlock(int height){
         int index = mediaBlockList.size() - 1;
-        mediaBlockList.get(index).setBounds(100, height, 1200, 200);
+        mediaBlockList.get(index).setBounds(0, 0, 1200, 200);
         return new AddBlockReturnValue(index,200);
     }
     
@@ -217,7 +260,7 @@ public class MainWindow extends javax.swing.JFrame {
             case BLANK->{
                 blankBlockList.add(new BlankBlock(this));
                 index = blankBlockList.size() - 1;
-                blankBlockList.get(index).setBounds(100, height, 1200, 100);
+                blankBlockList.get(index).setBounds(0, 0, 1200, 100);
                 totalBlockList.add(new BlockDocument(BLANK,height));
                 blankBlockList.get(index).setID(totalBlockList.size() - 1);
                 curBlockHeight = 100;
@@ -307,7 +350,7 @@ public class MainWindow extends javax.swing.JFrame {
             case TABLE->{
                 tableBlockList.add(new TableBlock(this));
                 index = tableBlockList.size() - 1;
-                tableBlockList.get(index).setBounds(100, height, 1200, 300);
+                tableBlockList.get(index).setBounds(0, 0, 1200, 300);
                 totalBlockList.add(new BlockDocument(TABLE,height));
                 tableBlockList.get(index).setID(totalBlockList.size() - 1);
             }
@@ -339,6 +382,7 @@ public class MainWindow extends javax.swing.JFrame {
             default->{
             }
         }
+        removeBlockPhysically(deleteBlockDoc);
         return deleteBlockDoc;
     }
     
@@ -357,20 +401,21 @@ public class MainWindow extends javax.swing.JFrame {
     }
     
     public boolean appendBlock(BlockType newBlockType){
-        totalBlockList.add(new BlockDocument(newBlockType,totalHeight));
         int index = 0;
         int curBlockHeight = 0;
         AddBlockReturnValue ret = simplyAddBlock(newBlockType,totalHeight);
         index = ret.index;
         curBlockHeight = ret.height;
+        
         totalBlockList.get(totalBlockList.size() - 1).setIndex(index);
         totalBlockList.get(totalBlockList.size() - 1).setHight(curBlockHeight);
+        totalBlockList.get(totalBlockList.size() - 1).needreRender = false;
         totalHeight += curBlockHeight + 50;
         rendering();
         return true;
     }
     
-    
+    /*
     public boolean adjustBlockVerticalPosition(int index, int adjustHeight){
         if(index < 0 || index >= totalBlockList.size() || totalBlockList.isEmpty()){
             return false;
@@ -378,7 +423,7 @@ public class MainWindow extends javax.swing.JFrame {
         BlockDocument toAdjusBlockDocument;
         for(int i = index; i < totalBlockList.size(); i++){
             toAdjusBlockDocument = totalBlockList.get(i);
-            toAdjusBlockDocument.startHeight -= adjustHeight;
+            toAdjusBlockDocument.setStartHight(toAdjusBlockDocument.getStartHeight() - adjustHeight);
             switch(toAdjusBlockDocument.blockType){
                 case BLANK->{
                     blankBlockList.get(toAdjusBlockDocument.index).setBounds(100, toAdjusBlockDocument.height, 1200, 100);
@@ -397,7 +442,7 @@ public class MainWindow extends javax.swing.JFrame {
             }
         }
         return true;
-    }
+    }*/
     
     
     public boolean deleteBlock(int index){
@@ -406,7 +451,7 @@ public class MainWindow extends javax.swing.JFrame {
         }
         BlockDocument deleteBlockDocument = simplyRemoveBlock(index);
         totalHeight -= deleteBlockDocument.height;
-        adjustBlockVerticalPosition(index, deleteBlockDocument.height);
+        //adjustBlockVerticalPosition(index, deleteBlockDocument.height);
         rendering();
         return true;
     }
@@ -422,8 +467,33 @@ public class MainWindow extends javax.swing.JFrame {
         int adjustHeight = 0;
         BlockDocument deleteBlockDocument = simplyRemoveBlock(index);
         adjustHeight = deleteBlockDocument.height - simplyInsertBlock(index, deleteBlockDocument.startHeight, newType);
-        adjustBlockVerticalPosition(index, adjustHeight);
+        //adjustBlockVerticalPosition(index, adjustHeight);
         rendering();
+        return true;
+    }
+    
+    public boolean removeBlockPhysically(BlockDocument currDocument){
+        switch(currDocument.blockType){
+            case BLANK->{
+                BlankBlock deleteBlankBlock = blankBlockList.get(currDocument.index);
+                mainContainer.remove(deleteBlankBlock);
+            }
+            case COMMONTEXT,CODE,HYPERTEXT,MARKDOWN,FORMULA,RICHTEXT,TITLE->{
+                CommonTextBlock deleteCommonTextBlock = inputBlockList.get(currDocument.index);
+                mainContainer.remove(deleteCommonTextBlock);
+            }
+            case MEDIA,IMAGE,VIDEO->{
+                MediaBlock deleteMediaBlock = mediaBlockList.get(currDocument.index);
+                mainContainer.remove(deleteMediaBlock);
+            }
+            case TABLE->{
+                TableBlock deleteTableBlock = tableBlockList.get(currDocument.index);
+                mainContainer.remove(deleteTableBlock);
+            }
+            default->{
+                return false;
+            }
+        };
         return true;
     }
     
@@ -431,32 +501,42 @@ public class MainWindow extends javax.swing.JFrame {
         if(totalBlockList.isEmpty()){
             return false;
         }
+        if(totalHeight < 901){
+            mainScrollPanel.setSize(new Dimension(1200,totalHeight));
+            mainScrollPanel.setPreferredSize(new Dimension(1200,totalHeight));
+        }
+        mainScrollPanel.getViewport().setSize(new Dimension(1200,totalHeight));
+        mainScrollPanel.getViewport().setPreferredSize(new Dimension(1200,totalHeight));
+        mainContainer.setSize(new Dimension(1200,totalHeight));
+        mainContainer.setPreferredSize(new Dimension(1200,totalHeight));
         for (int i = 0; i < totalBlockList.size(); i++) {
             BlockDocument currDocument = totalBlockList.get(i);
             switch(currDocument.blockType){
                 case BLANK->{
                     BlankBlock renderBlankBlock = blankBlockList.get(currDocument.index);
-                    MainLayer.add(renderBlankBlock);
-                    MainLayer.moveToFront(renderBlankBlock);
+                    renderBlankBlock.setOpaque(false);
+                    mainContainer.add(renderBlankBlock,null);
                 }
                 case COMMONTEXT,CODE,HYPERTEXT,MARKDOWN,FORMULA,RICHTEXT,TITLE->{
                     CommonTextBlock renderCommonTextBlock = inputBlockList.get(currDocument.index);
-                    MainLayer.add(renderCommonTextBlock);
-                    MainLayer.moveToFront(renderCommonTextBlock);
+                    renderCommonTextBlock.setOpaque(false);
+                    mainContainer.add(renderCommonTextBlock,null);
                 }
                 case MEDIA,IMAGE,VIDEO->{
                     MediaBlock renderMediaBlock = mediaBlockList.get(currDocument.index);
-                    MainLayer.add(renderMediaBlock);
-                    MainLayer.moveToFront(renderMediaBlock);
+                    renderMediaBlock.setOpaque(false);
+                    mainContainer.add(renderMediaBlock,null);
                 }
                 case TABLE->{
                     TableBlock renderTableBlock = tableBlockList.get(currDocument.index);
-                    MainLayer.add(renderTableBlock);
-                    MainLayer.moveToFront(renderTableBlock);
+                    renderTableBlock.setOpaque(false);
+                    mainContainer.add(renderTableBlock,null);
                 }
                 default->{
+                    continue;
                 }
             }
+            currDocument.rendered = true;
         }
         return true;
     }
@@ -518,6 +598,8 @@ public class MainWindow extends javax.swing.JFrame {
         public int index = 0;
         public int startHeight = 0;
         public int height = 0;
+        public boolean rendered = false;
+        public boolean needreRender = false;
 
         public BlockDocument(BlockType thisBlockType) {
             blockType = thisBlockType;
@@ -535,6 +617,7 @@ public class MainWindow extends javax.swing.JFrame {
         
         public boolean setHight(int newHight){
             height = newHight;
+            needreRender = true;
             return true;
         }
         
@@ -542,9 +625,19 @@ public class MainWindow extends javax.swing.JFrame {
             return height;
         }
         
+        public boolean setStartHight(int newStartHeight){
+            startHeight = newStartHeight;
+            needreRender = true;
+            return true;
+        }
+        
+        public int getStartHeight(){
+            return startHeight;
+        }
     }
     
     private ArrayList<BlockDocument> totalBlockList = new ArrayList<>();
+    private java.awt.Container mainContainer = new Container();
     private int totalHeight = 0;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -565,6 +658,8 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuBar mainMenuBar;
+    private javax.swing.JPanel mainPanel;
+    private javax.swing.JScrollPane mainScrollPanel;
     private javax.swing.JMenuItem openNewWindowMenutem;
     private javax.swing.JMenuItem pasteMenuItem;
     private javax.swing.JMenuItem replaceMenuItem;

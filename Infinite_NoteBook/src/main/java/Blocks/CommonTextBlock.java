@@ -12,6 +12,7 @@ import javax.swing.undo.UndoManager;
 import javax.swing.event.UndoableEditEvent;
 import javax.swing.event.UndoableEditListener;
 import javax.swing.text.*;
+import java.awt.Color;
 
 /**
  *
@@ -84,6 +85,7 @@ public class CommonTextBlock extends javax.swing.JPanel {
         lineNumScrollPane = new javax.swing.JScrollPane();
         lineNumEditorPane = new javax.swing.JEditorPane();
 
+        setBackground(new Color(0,0,0,0));
         setOpaque(false);
         setPreferredSize(new java.awt.Dimension(1200, 300));
 
@@ -119,6 +121,8 @@ public class CommonTextBlock extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void initComponentsManually(){
+        mainInputScrollPane.getViewport().setOpaque(false);
+        lineNumScrollPane.getViewport().setOpaque(false);
         commonTextButtonBar = new CommonTextButtonBar(this);
         commonTextButtonBar.setBounds(0, 0, 650, 62);
         this.add(commonTextButtonBar);

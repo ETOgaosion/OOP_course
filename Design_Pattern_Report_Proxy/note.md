@@ -51,7 +51,7 @@ UML
 
 适配器是同类的需求，装饰器是不同类型的功能
 
-![decorator](https://www.runoob.com/design-pattern/decorator-pattern.html)
+![decorator](https://www.runoob.com/wp-content/uploads/2014/08/20210420-decorator-1-decorator-decorator.svg)
 
 ### iterator模式
 
