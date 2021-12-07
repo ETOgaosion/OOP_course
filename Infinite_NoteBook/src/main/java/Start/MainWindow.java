@@ -8,6 +8,7 @@ import java.awt.Color;
 import java.util.ArrayList;
 import Blocks.*;
 import Blocks.BlockType;
+import Git.GitOP;
 import static Blocks.BlockType.BLANK;
 import static Blocks.BlockType.COMMONTEXT;
 import static Blocks.BlockType.CODE;
@@ -74,6 +75,11 @@ public class MainWindow extends javax.swing.JFrame {
         findMenuItem = new javax.swing.JMenuItem();
         replaceMenuItem = new javax.swing.JMenuItem();
         GitMenu = new javax.swing.JMenu();
+        gitInitMenuItem = new javax.swing.JMenuItem();
+        gitAddMenuItem = new javax.swing.JMenuItem();
+        gitCommitMenuItem = new javax.swing.JMenuItem();
+        gitPushMenuItem = new javax.swing.JMenuItem();
+        gitPullMenuItem = new javax.swing.JMenuItem();
         settingsMenu = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
 
@@ -191,6 +197,47 @@ public class MainWindow extends javax.swing.JFrame {
         mainMenuBar.add(editMenu);
 
         GitMenu.setText("Git");
+
+        gitInitMenuItem.setText("init");
+        gitInitMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gitInitMenuItemActionPerformed(evt);
+            }
+        });
+        GitMenu.add(gitInitMenuItem);
+
+        gitAddMenuItem.setText("add .");
+        gitAddMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gitAddMenuItemActionPerformed(evt);
+            }
+        });
+        GitMenu.add(gitAddMenuItem);
+
+        gitCommitMenuItem.setText("commit");
+        gitCommitMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gitCommitMenuItemActionPerformed(evt);
+            }
+        });
+        GitMenu.add(gitCommitMenuItem);
+
+        gitPushMenuItem.setText("push");
+        gitPushMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gitPushMenuItemActionPerformed(evt);
+            }
+        });
+        GitMenu.add(gitPushMenuItem);
+
+        gitPullMenuItem.setText("pull");
+        gitPullMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gitPullMenuItemActionPerformed(evt);
+            }
+        });
+        GitMenu.add(gitPullMenuItem);
+
         mainMenuBar.add(GitMenu);
 
         settingsMenu.setText("Settings");
@@ -324,14 +371,6 @@ public class MainWindow extends javax.swing.JFrame {
                 curBlockHeight = ret.height;
                 totalBlockList.add(new BlockDocument(TITLE,height));
                 inputBlockList.get(index).setID(totalBlockList.size() - 1);
-            }
-            case MEDIA->{
-                mediaBlockList.add(new MediaBlock(this));
-                totalBlockList.add(new BlockDocument(MEDIA,height));
-                mediaBlockList.get(index).setID(totalBlockList.size() - 1);
-                AddBlockReturnValue ret = addMediaBlock(height);
-                index = ret.index;
-                curBlockHeight = ret.height;
             }
             case IMAGE->{
                 mediaBlockList.add(new ImageBlock(this));
@@ -561,6 +600,31 @@ public class MainWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cpyMemuItemActionPerformed
 
+    private void gitInitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gitInitMenuItemActionPerformed
+        // TODO add your handling code here:
+        mainGitOP.gitInit();
+    }//GEN-LAST:event_gitInitMenuItemActionPerformed
+
+    private void gitAddMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gitAddMenuItemActionPerformed
+        // TODO add your handling code here:
+        mainGitOP.gitAdd();
+    }//GEN-LAST:event_gitAddMenuItemActionPerformed
+
+    private void gitCommitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gitCommitMenuItemActionPerformed
+        // TODO add your handling code here:
+        mainGitOP.gitCommit();
+    }//GEN-LAST:event_gitCommitMenuItemActionPerformed
+
+    private void gitPushMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gitPushMenuItemActionPerformed
+        // TODO add your handling code here:
+        mainGitOP.gitPush();
+    }//GEN-LAST:event_gitPushMenuItemActionPerformed
+
+    private void gitPullMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gitPullMenuItemActionPerformed
+        // TODO add your handling code here:
+        mainGitOP.gitPull();
+    }//GEN-LAST:event_gitPullMenuItemActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -604,6 +668,8 @@ public class MainWindow extends javax.swing.JFrame {
     private ArrayList<MediaBlock> mediaBlockList = new ArrayList<>();
     private ArrayList<TableBlock> tableBlockList = new ArrayList<>();
     private ArrayList<RichTextToolBox> richTextToolBoxList = new ArrayList<>();
+    
+    private GitOP mainGitOP = new GitOP();
     
     private class BlockDocument{
         public BlockType blockType = BlockType.BLANK;
@@ -666,6 +732,11 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JMenuItem exportMenuItem;
     private javax.swing.JMenu fileMenu;
     private javax.swing.JMenuItem findMenuItem;
+    private javax.swing.JMenuItem gitAddMenuItem;
+    private javax.swing.JMenuItem gitCommitMenuItem;
+    private javax.swing.JMenuItem gitInitMenuItem;
+    private javax.swing.JMenuItem gitPullMenuItem;
+    private javax.swing.JMenuItem gitPushMenuItem;
     private javax.swing.JMenuItem importMenuItem;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuItem jMenuItem3;

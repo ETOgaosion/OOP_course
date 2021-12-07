@@ -5,7 +5,7 @@ import Start.*;
 public class ImageBlock extends MediaBlock{
 
     public ImageBlock(MainWindow parentWindow) {
-        super(parentWindow);
+        super(parentWindow,BlockType.IMAGE);
     }
     
     

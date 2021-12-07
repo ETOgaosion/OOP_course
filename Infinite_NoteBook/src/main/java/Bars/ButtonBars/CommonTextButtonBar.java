@@ -78,7 +78,7 @@ public class CommonTextButtonBar extends javax.swing.JPanel {
             }
         });
 
-        blockTypeComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Common Text", "Code", "HyperText", "Markdown", "Formula", "Rich Text", "Infinite Title", "Media", "Image", "Video", "Table", "Blank" }));
+        blockTypeComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Common Text", "Code", "HyperText", "Markdown", "Formula", "Rich Text", "Infinite Title", "Image", "Video", "Table", "Blank" }));
 
         operationsComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Move Up", "Move Down", "Undo", "Redo", "Copy Block", "Cut Block", "Delete Block", "Import", "Export", "Compile", "Display", "Compile & Display", "Archive Block" }));
 

@@ -127,7 +127,7 @@ public class MainWindowButtonBar extends javax.swing.JPanel {
 
         replaceAllButton.setText("Replace All");
 
-        blockTypeComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Common Text", "Code", "HyperText", "Markdown", "Formula", "Rich Text", "Infinite Title", "Media", "Image", "Video", "Table", "Blank" }));
+        blockTypeComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Common Text", "Code", "HyperText", "Markdown", "Formula", "Rich Text", "Infinite Title", "Image", "Video", "Table", "Blank" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

@@ -80,7 +80,7 @@ public class BlankButtonBar extends javax.swing.JPanel {
             }
         });
 
-        blockTypeComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Common Text Block", "Code Block", "HyperText Block", "Markdown Block", "Formula Block", "Rich Text Block", "Infinite Title Block", "Media Block", "Image Block", "Video Block", "Table Block" }));
+        blockTypeComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Common Text Block", "Code Block", "HyperText Block", "Markdown Block", "Formula Block", "Rich Text Block", "Infinite Title Block", "Image Block", "Video Block", "Table Block" }));
 
         deleteButton.setText("Delete");
 
@@ -117,16 +117,17 @@ public class BlankButtonBar extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(blockTypeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(changeButton)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jButton12)
                         .addComponent(deleteButton))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(importButton)
                         .addComponent(exportButton)
-                        .addComponent(typeLabel)))
+                        .addComponent(typeLabel))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(blockTypeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(changeButton)))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents

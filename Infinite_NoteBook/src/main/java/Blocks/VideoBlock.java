@@ -5,7 +5,7 @@ import Start.*;
 public class VideoBlock extends MediaBlock{
 
     public VideoBlock(MainWindow parentWindow) {
-        super(parentWindow);
+        super(parentWindow,BlockType.VIDEO);
     }
     
 }

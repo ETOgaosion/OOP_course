@@ -5,6 +5,11 @@
 package Blocks;
 
 import Start.*;
+import javax.swing.*;
+import javax.swing.DefaultListModel;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import java.io.File;
+import java.awt.*;
 
 /**
  *
@@ -15,10 +20,11 @@ public class MediaBlock extends javax.swing.JPanel {
     /**
      * Creates new form MediaBlock
      */
-    public MediaBlock(MainWindow parentWindow) {
+    public MediaBlock(MainWindow parentWindow, BlockType blockType) {
         initComponents();
         parentMainWindow = parentWindow;
         mediaBlockBasic.setMasterMeidaBlock(this);
+        curBlockType = blockType;
     }
     
     
@@ -36,6 +42,41 @@ public class MediaBlock extends javax.swing.JPanel {
     
     public BlockType getNewBlockType(int comboxIndex){
         return mediaBlockBasic.getNewBlockType(comboxIndex);
+    }
+    
+    private void showFileOpenDialog(Component parent, BlockType filterArg) {
+        // 创建一个默认的文件选取器
+        JFileChooser fileChooser = new JFileChooser();
+
+        // 设置默认显示的文件夹为当前文件夹
+        fileChooser.setCurrentDirectory(new File("."));
+
+        // 设置文件选择的模式（只选文件、只选文件夹、文件和文件均可选）
+        fileChooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+        // 设置是否允许多选
+        fileChooser.setMultiSelectionEnabled(true);
+
+        // 添加可用的文件过滤器（FileNameExtensionFilter 的第一个参数是描述, 后面是需要过滤的文件扩展名 可变参数）
+        if(filterArg == BlockType.IMAGE){
+            fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("image(*.jpg, *.png, *.gif)", "jpg", "png", "gif"));
+        }
+        else if(filterArg == BlockType.VIDEO){
+            fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("video(*.mp4)","mp4"));
+        }
+
+        // 打开文件选择框（线程将被阻塞, 直到选择框被关闭）
+        int result = fileChooser.showOpenDialog(parent);
+
+        if (result == JFileChooser.APPROVE_OPTION) {
+            // 如果点击了"确定", 则获取选择的文件路径
+            File file = fileChooser.getSelectedFile();
+
+            // 如果允许选择多个文件, 则通过下面方法获取选择的所有文件
+            // File[] files = fileChooser.getSelectedFiles();
+
+            mediaList.setModel(dlm);
+            dlm.addElement(file.getAbsolutePath());
+        }
     }
 
     /**
@@ -68,6 +109,11 @@ public class MediaBlock extends javax.swing.JPanel {
         choosePathComboBox.setOpaque(true);
 
         choosePathButton.setText("Select Path");
+        choosePathButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                choosePathButtonActionPerformed(evt);
+            }
+        });
 
         appendListButton.setText("Append");
 
@@ -105,7 +151,6 @@ public class MediaBlock extends javax.swing.JPanel {
                 .addGap(0, 70, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(appendListButton)
                         .addGap(27, 27, 27)
                         .addComponent(deleteButton)
@@ -114,8 +159,14 @@ public class MediaBlock extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void choosePathButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_choosePathButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_choosePathButtonActionPerformed
+
     private MainWindow parentMainWindow;
     private BlockBasic mediaBlockBasic = new BlockBasic();
+    DefaultListModel<String> dlm = new DefaultListModel<>();
+    BlockType curBlockType = BlockType.IMAGE;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton appendListButton;
