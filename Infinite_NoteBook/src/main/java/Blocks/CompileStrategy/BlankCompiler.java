@@ -4,16 +4,31 @@
  */
 package Blocks.CompileStrategy;
 
+import Blocks.*;
+import Blocks.BlockType;
+
 /**
  *
  * @author gzy
  */
 public class BlankCompiler implements Compiler{
     private String htmlContent;
+    private String rawInput;
+
+    public BlankCompiler(String input) {
+        rawInput = input;
+    }
+    
+    public boolean setRawInput(String input){
+        rawInput = input;
+        return true;
+    }
     
     @Override
     public String Compile(String inputString){
-        return "";
+        setRawInput(inputString);
+        htmlContent = rawInput;
+        return htmlContent;
     }
     @Override
     public String getHtmlContent(){

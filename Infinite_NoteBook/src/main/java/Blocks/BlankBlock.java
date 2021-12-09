@@ -42,6 +42,10 @@ public class BlankBlock extends javax.swing.JPanel {
         return blankBlockBasic.getNewBlockType(comboxIndex);
     }
     
+    public BlockBasic getBlockBasic(){
+        return blankBlockBasic;
+    }
+    
     
 
     /**

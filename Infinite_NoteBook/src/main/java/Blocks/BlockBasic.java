@@ -32,7 +32,7 @@ public class BlockBasic {
     private String htmlContent = "";
     private String audioPath = "";
     private CompilerFactory compilerFactory = new CompilerFactory();
-    private Blocks.CompileStrategy.Compiler blankCompiler = compilerFactory.getCompiler(BlockType.BLANK);
+    private Blocks.CompileStrategy.Compiler blankCompiler = compilerFactory.getCompiler(BlockType.BLANK,rawInput);
     
     private BlankBlock masterBlankBlock;
     private CommonTextBlock masterInputBlock;

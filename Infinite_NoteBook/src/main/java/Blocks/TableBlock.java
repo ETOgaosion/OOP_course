@@ -5,6 +5,7 @@
 package Blocks;
 
 import Start.*;
+import javax.swing.JTable;
 
 /**
  *
@@ -34,6 +35,14 @@ public class TableBlock extends javax.swing.JPanel {
     public boolean changeBlock(BlockType newBlockType){
         return parentMainWindow.changeBlock(tableBlockBasic.getID(), newBlockType);
     }
+    
+    public BlockBasic getBlockBasic(){
+        return tableBlockBasic;
+    }
+    
+    public JTable getMainTable(){
+        return mainTable;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -45,7 +54,7 @@ public class TableBlock extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        mainTable = new javax.swing.JTable();
         appendColumnButton = new javax.swing.JButton();
         totalNumberTextField = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
@@ -58,7 +67,7 @@ public class TableBlock extends javax.swing.JPanel {
         setOpaque(false);
         setPreferredSize(new java.awt.Dimension(1200, 300));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        mainTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -69,7 +78,7 @@ public class TableBlock extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(mainTable);
 
         appendColumnButton.setText("Insert Column");
 
@@ -152,7 +161,7 @@ public class TableBlock extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable mainTable;
     private javax.swing.JTextField totalNumberTextField;
     // End of variables declaration//GEN-END:variables
 }

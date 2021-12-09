@@ -10,10 +10,22 @@ package Blocks.CompileStrategy;
  */
 public class CodeCompiler implements Compiler{
     private String htmlContent;
+    private String rawInput;
+
+    public CodeCompiler(String input) {
+        rawInput = input;
+    }
+    
+    public boolean setRawInput(String input){
+        rawInput = input;
+        return true;
+    }
     
     @Override
     public String Compile(String inputString){
-        return "";
+        setRawInput(inputString);
+        htmlContent = "<div>\n\t<pre>\n\t\t<code>\n".concat(inputString).concat("\n\t\t</code>\n\t<pre>\n</div>");
+        return htmlContent;
     }
     @Override
     public String getHtmlContent(){

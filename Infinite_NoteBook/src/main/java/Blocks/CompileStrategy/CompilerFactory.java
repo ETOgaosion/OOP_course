@@ -9,32 +9,32 @@ package Blocks.CompileStrategy;
  * @author gzy
  */
 public class CompilerFactory {
-    public Compiler getCompiler(Blocks.BlockType compilerType){
+    public Compiler getCompiler(Blocks.BlockType compilerType, String input){
         if(compilerType == null){
             return null;
         }
         else{
             switch (compilerType){
                 case BLANK:
-                    return new CommonTextCompiler();
+                    return new BlankCompiler(input);
                 case COMMONTEXT:
-                    return new CommonTextCompiler();
+                    return new CommonTextCompiler(input);
                 case CODE:
-                    return new CodeCompiler();
+                    return new CodeCompiler(input);
                 case HYPERTEXT:
-                    return new BlankCompiler();
+                    return new BlankCompiler(input);
                 case FORMULA:
-                    return new FormulaCompiler();
+                    return new FormulaCompiler(input);
                 case IMAGE:
-                    return new ImageCompiler();
+                    return new ImageCompiler(input);
                 case MARKDOWN:
-                    return new MarkdownCompiler();
+                    return new MarkdownCompiler(input);
                 case TABLE:
                     return new TableCompiler();
                 case TITLE:
-                    return new TitleCompiler();
+                    return new TitleCompiler(input);
                 case VIDEO:
-                    return new VideoCompiler();
+                    return new VideoCompiler(input);
                 default:
                     return null;
             }

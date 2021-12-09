@@ -82,9 +82,6 @@
     <Component class="javax.swing.JButton" name="increaseFontSizeButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="A+"/>
-        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[75, 29]"/>
-        </Property>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="increaseFontSizeButtonActionPerformed"/>
@@ -93,9 +90,6 @@
     <Component class="javax.swing.JButton" name="changeFontButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Font"/>
-        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[75, 29]"/>
-        </Property>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="changeFontButtonActionPerformed"/>

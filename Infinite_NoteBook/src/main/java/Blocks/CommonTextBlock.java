@@ -18,7 +18,7 @@ import java.awt.Color;
  *
  * @author gzy
  */
-public class CommonTextBlock extends javax.swing.JPanel {
+public class CommonTextBlock extends javax.swing.JPanel{
 
     /**
      * Creates new form CommonTextBlock
@@ -154,6 +154,10 @@ public class CommonTextBlock extends javax.swing.JPanel {
                 commonTextButtonBar = new TitleButtonBar(this);
             }
         }
+    }
+    
+    public BlockBasic getBlockBasic(){
+        return inputTextBlockBasic;
     }
     
     private CommonTextButtonBar commonTextButtonBar;
