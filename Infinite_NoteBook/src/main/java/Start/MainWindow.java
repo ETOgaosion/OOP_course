@@ -355,13 +355,12 @@ public class MainWindow extends javax.swing.JFrame {
                 inputBlockList.get(index).setID(totalBlockList.size() - 1);
             }
             case RICHTEXT->{
-                inputBlockList.add(new RichTextBlock(this));
+                richTextBlockList.add(new RichTextBlock(this));
                 AddBlockReturnValue ret = addInputBlock(height);
                 index = ret.index;
                 curBlockHeight = ret.height;
                 totalBlockList.add(new BlockDocument(RICHTEXT,height));
                 inputBlockList.get(index).setID(totalBlockList.size() - 1);
-                richTextToolBoxList.add(new RichTextToolBox());
                 inputBlockList.get(index).setID(totalBlockList.size() - 1);
             }
             case TITLE->{
@@ -411,8 +410,11 @@ public class MainWindow extends javax.swing.JFrame {
             case BLANK->{
                 blankBlockList.remove(deleteBlockDoc.index);
             }
-            case COMMONTEXT,CODE,HYPERTEXT,MARKDOWN,FORMULA,RICHTEXT,TITLE->{
+            case COMMONTEXT,CODE,HYPERTEXT,MARKDOWN,FORMULA,TITLE->{
                 inputBlockList.remove(deleteBlockDoc.index);
+            }
+            case RICHTEXT->{
+                richTextBlockList.remove(deleteBlockDoc.index);
             }
             case MEDIA,IMAGE,VIDEO->{
                 mediaBlockList.remove(deleteBlockDoc.index);
@@ -519,8 +521,12 @@ public class MainWindow extends javax.swing.JFrame {
                 BlankBlock deleteBlankBlock = blankBlockList.get(currDocument.index);
                 mainContainerPanel.remove(deleteBlankBlock);
             }
-            case COMMONTEXT,CODE,HYPERTEXT,MARKDOWN,FORMULA,RICHTEXT,TITLE->{
+            case COMMONTEXT,CODE,HYPERTEXT,MARKDOWN,FORMULA,TITLE->{
                 CommonTextBlock deleteCommonTextBlock = inputBlockList.get(currDocument.index);
+                mainContainerPanel.remove(deleteCommonTextBlock);
+            }
+            case RICHTEXT->{
+                RichTextBlock deleteCommonTextBlock = richTextBlockList.get(currDocument.index);
                 mainContainerPanel.remove(deleteCommonTextBlock);
             }
             case MEDIA,IMAGE,VIDEO->{
@@ -565,10 +571,15 @@ public class MainWindow extends javax.swing.JFrame {
                     renderBlankBlock.setOpaque(false);
                     mainContainerPanel.add(renderBlankBlock,null);
                 }
-                case COMMONTEXT,CODE,HYPERTEXT,MARKDOWN,FORMULA,RICHTEXT,TITLE->{
+                case COMMONTEXT,CODE,HYPERTEXT,MARKDOWN,FORMULA,TITLE->{
                     CommonTextBlock renderCommonTextBlock = inputBlockList.get(currDocument.index);
                     renderCommonTextBlock.setOpaque(false);
                     mainContainerPanel.add(renderCommonTextBlock,null);
+                }
+                case RICHTEXT->{
+                    RichTextBlock renderRichTextBlock = richTextBlockList.get(currDocument.index);
+                    renderRichTextBlock.setOpaque(false);
+                    mainContainerPanel.add(renderRichTextBlock,null);
                 }
                 case MEDIA,IMAGE,VIDEO->{
                     MediaBlock renderMediaBlock = mediaBlockList.get(currDocument.index);
@@ -665,9 +676,9 @@ public class MainWindow extends javax.swing.JFrame {
     private MainWindowButtonBar mainButtonBar;
     private ArrayList<BlankBlock> blankBlockList = new ArrayList<>();
     private ArrayList<CommonTextBlock> inputBlockList = new ArrayList<>();
+    private ArrayList<RichTextBlock> richTextBlockList = new ArrayList<>();
     private ArrayList<MediaBlock> mediaBlockList = new ArrayList<>();
     private ArrayList<TableBlock> tableBlockList = new ArrayList<>();
-    private ArrayList<RichTextToolBox> richTextToolBoxList = new ArrayList<>();
     
     private GitOP mainGitOP = new GitOP();
     

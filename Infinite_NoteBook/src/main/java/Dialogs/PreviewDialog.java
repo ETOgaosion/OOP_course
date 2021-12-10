@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
 package Dialogs;
+import javafx.scene.web.WebView;
 
 /**
  *

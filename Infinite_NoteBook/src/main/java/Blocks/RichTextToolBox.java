@@ -15,8 +15,9 @@ public class RichTextToolBox extends javax.swing.JPanel {
     /**
      * Creates new form RichTextToolBox
      */
-    public RichTextToolBox() {
+    public RichTextToolBox(RichTextBlock parBlock) {
         initComponents();
+        parentRichTextBlock = parBlock;
     }
 
     /**
