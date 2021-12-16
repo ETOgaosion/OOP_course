@@ -36,6 +36,7 @@ public class BlockBasic {
     
     private BlankBlock masterBlankBlock;
     private CommonTextBlock masterInputBlock;
+    private RichTextBlock masterRichTextBlock;
     private MediaBlock masterMediaBlock;
     private TableBlock masterTableBlock;
     
@@ -46,6 +47,11 @@ public class BlockBasic {
     
     public boolean setMasterInputBlock(CommonTextBlock master){
         masterInputBlock = master;
+        return true;
+    }
+    
+    public boolean setMasterRichTextBlock(RichTextBlock master){
+        masterRichTextBlock = master;
         return true;
     }
     

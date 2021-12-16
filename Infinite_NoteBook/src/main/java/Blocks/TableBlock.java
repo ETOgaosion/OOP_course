@@ -19,8 +19,8 @@ public class TableBlock extends javax.swing.JPanel {
      */
     public TableBlock(MainWindow parentWindow) {
         initComponents();
+        initComponentsManually();
         parentMainWindow = parentWindow;
-        tableBlockBasic.setMasterTableBlock(this);
     }
     
     
@@ -44,6 +44,10 @@ public class TableBlock extends javax.swing.JPanel {
         return mainTable;
     }
 
+    private void initComponentsManually(){
+        tableBlockBasic.setMasterTableBlock(this);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

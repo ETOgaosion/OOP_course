@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import Blocks.*;
 import Blocks.BlockType;
 import Git.GitOP;
+import Dialogs.PreviewDialog;
 import static Blocks.BlockType.BLANK;
 import static Blocks.BlockType.COMMONTEXT;
 import static Blocks.BlockType.CODE;
@@ -595,12 +596,59 @@ public class MainWindow extends javax.swing.JFrame {
                     continue;
                 }
             }
+            revalidate();
+            repaint();
             mainContainerPanel.revalidate();
             mainContainerPanel.repaint();
             mainScrollPanel.setViewportView(mainContainerPanel);
             currDocument.rendered = true;
         }
         return true;
+    }
+    
+    public void compileAll(){
+        totalHtml = "";
+        for(int i = 0; i < totalBlockList.size(); i++){
+            BlockDocument currDocument = totalBlockList.get(i);
+            String curHtmlString;
+            switch(currDocument.blockType){
+                case BLANK->{
+                    BlankBlock renderBlankBlock = blankBlockList.get(currDocument.index);
+                    renderBlankBlock.getBlockBasic().Compile();
+                    curHtmlString = renderBlankBlock.getBlockBasic().getHtmlContent();
+                }
+                case COMMONTEXT,CODE,HYPERTEXT,MARKDOWN,FORMULA,TITLE->{
+                    CommonTextBlock renderCommonTextBlock = inputBlockList.get(currDocument.index);
+                    renderCommonTextBlock.getBlockBasic().Compile();
+                    curHtmlString = renderCommonTextBlock.getBlockBasic().getHtmlContent();
+                }
+                case RICHTEXT->{
+                    RichTextBlock renderRichTextBlock = richTextBlockList.get(currDocument.index);
+                    renderRichTextBlock.getBlockBasic().Compile();
+                    curHtmlString = renderRichTextBlock.getBlockBasic().getHtmlContent();
+                }
+                case MEDIA,IMAGE,VIDEO->{
+                    MediaBlock renderMediaBlock = mediaBlockList.get(currDocument.index);
+                    renderMediaBlock.getBlockBasic().Compile();
+                    curHtmlString = renderMediaBlock.getBlockBasic().getHtmlContent();
+                }
+                case TABLE->{
+                    TableBlock renderTableBlock = tableBlockList.get(currDocument.index);
+                    renderTableBlock.getBlockBasic().Compile();
+                    curHtmlString = renderTableBlock.getBlockBasic().getHtmlContent();
+                }
+                default->{
+                    continue;
+                }
+            }
+            totalHtml.concat(curHtmlString);
+        }
+    }
+    
+    public void preview(){
+        compileAll();
+        PreviewDialog newPreviewDialog = new PreviewDialog(this,true,totalHtml);
+        newPreviewDialog.setVisible(true);
     }
     
     private void openNewWindowMenutemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openNewWindowMenutemActionPerformed
@@ -728,6 +776,7 @@ public class MainWindow extends javax.swing.JFrame {
     private ArrayList<BlockDocument> totalBlockList = new ArrayList<>();
     private javax.swing.JPanel mainContainerPanel = new javax.swing.JPanel();
     private int totalHeight = 0;
+    private String totalHtml;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu GitMenu;

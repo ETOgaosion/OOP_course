@@ -115,6 +115,11 @@ public class MainWindowButtonBar extends javax.swing.JPanel {
         });
 
         previewButton.setLabel("Preview");
+        previewButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                previewButtonActionPerformed(evt);
+            }
+        });
 
         doSearchButton.setText("Search");
 
@@ -192,6 +197,11 @@ public class MainWindowButtonBar extends javax.swing.JPanel {
         // TODO add your handling code here:
         parentMainWindow.popBlock();
     }//GEN-LAST:event_popBlockButtonActionPerformed
+
+    private void previewButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_previewButtonActionPerformed
+        // TODO add your handling code here:
+        parentMainWindow.preview();
+    }//GEN-LAST:event_previewButtonActionPerformed
 
     private MainWindow parentMainWindow;
 

@@ -40,7 +40,13 @@ public class RichTextBlock extends javax.swing.JPanel {
     
     private void initComponentsManually(){
         richTextToolBox.setBounds(1, 62, 80, 300);
+        richTextBlockBasic.setMasterRichTextBlock(this);
         
+    }
+    
+    
+    public BlockBasic getBlockBasic(){
+        return richTextBlockBasic;
     }
 
     /**
@@ -93,6 +99,7 @@ public class RichTextBlock extends javax.swing.JPanel {
 
     private RichTextToolBox richTextToolBox = new RichTextToolBox(this);
     private MainWindow parentMainWindow;
+    private BlockBasic richTextBlockBasic = new BlockBasic();
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JEditorPane lineNumEditorPane;

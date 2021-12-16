@@ -77,6 +77,7 @@ public class BlankBlock extends javax.swing.JPanel {
         blankButtonBar = new Bars.ButtonBars.BlankButtonBar(this,BlockType.BLANK);
         blankButtonBar.setBounds(0, 0, 650, 70);
         add(blankButtonBar);
+        blankBlockBasic.setMasterBlankBlock(this);
     }
     
     private BlankButtonBar blankButtonBar;

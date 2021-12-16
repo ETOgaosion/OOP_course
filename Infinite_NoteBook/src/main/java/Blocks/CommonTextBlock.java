@@ -28,7 +28,6 @@ public class CommonTextBlock extends javax.swing.JPanel{
         initComponents();
         initComponentsManually(curBlockType);
         parentMainWindow = parentWindow;
-        inputTextBlockBasic.setMasterInputBlock(this);
     }
     
     public boolean setID(int ID){
@@ -131,6 +130,7 @@ public class CommonTextBlock extends javax.swing.JPanel{
                 undoManager.addEdit(e.getEdit());
             }
         });
+        inputTextBlockBasic.setMasterInputBlock(this);
     }
     
     public void initCommonTextButtonBar(BlockType thisBlockType){

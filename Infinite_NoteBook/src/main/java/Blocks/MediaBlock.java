@@ -22,8 +22,8 @@ public class MediaBlock extends javax.swing.JPanel {
      */
     public MediaBlock(MainWindow parentWindow, BlockType blockType) {
         initComponents();
+        initComponentsManually();
         parentMainWindow = parentWindow;
-        mediaBlockBasic.setMasterMeidaBlock(this);
         curBlockType = blockType;
     }
     
@@ -79,6 +79,14 @@ public class MediaBlock extends javax.swing.JPanel {
         }
     }
 
+    public BlockBasic getBlockBasic(){
+        return mediaBlockBasic;
+    }
+    
+    private void initComponentsManually(){
+        mediaBlockBasic.setMasterMeidaBlock(this);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

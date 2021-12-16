@@ -3,7 +3,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
 package Dialogs;
+import javafx.application.Platform;
+import javafx.scene.Scene;
 import javafx.scene.web.WebView;
+import javafx.embed.swing.JFXPanel;
+
 
 /**
  *
@@ -14,9 +18,36 @@ public class PreviewDialog extends javax.swing.JDialog {
     /**
      * Creates new form PreviewDialog
      */
-    public PreviewDialog(java.awt.Frame parent, boolean modal) {
+    public PreviewDialog(java.awt.Frame parent, boolean modal, String HtmlString) {
         super(parent, modal);
         initComponents();
+        initComponentsManually();
+        setHtmlContent(HtmlString);
+    }
+    
+
+    private void createJFXContent() {
+        previewWebView = new WebView();
+        previewWebView.setPrefSize(1000, 785);
+        displayHtml();
+        Scene scene = new Scene(previewWebView);
+        outputFXPanel.setScene(scene);
+    }
+    
+    private void initComponentsManually(){
+        outputFXPanel = new JFXPanel();
+        Platform.runLater(this::createJFXContent);
+        outputFXPanel.setBounds(0,0,1000,785);
+        outputPanel.add(outputFXPanel);
+    }
+    
+    public void setHtmlContent(String htmlString){
+        htmlContent = htmlString;
+    }
+    
+    public boolean displayHtml(){
+        previewWebView.getEngine().loadContent(htmlContent,"text/html");
+        return true;
     }
 
     /**
@@ -28,63 +59,70 @@ public class PreviewDialog extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLayeredPane1 = new javax.swing.JLayeredPane();
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jLabel1 = new javax.swing.JLabel();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-
-        jPanel1.setOpaque(false);
-
-        jPanel2.setOpaque(false);
+        jLayeredPane1 = new javax.swing.JLayeredPane();
+        backPanel = new javax.swing.JPanel();
+        outputPanel = new javax.swing.JPanel();
+        backgroundLabel = new javax.swing.JLabel();
 
         jScrollPane1.setOpaque(false);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1000, Short.MAX_VALUE)
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1090, 830));
+        setSize(new java.awt.Dimension(1090, 830));
+
+        jLayeredPane1.setPreferredSize(new java.awt.Dimension(1090, 830));
+        jLayeredPane1.setSize(new java.awt.Dimension(1090, 830));
+
+        backPanel.setOpaque(false);
+
+        outputPanel.setOpaque(false);
+
+        javax.swing.GroupLayout outputPanelLayout = new javax.swing.GroupLayout(outputPanel);
+        outputPanel.setLayout(outputPanelLayout);
+        outputPanelLayout.setHorizontalGroup(
+            outputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1000, Short.MAX_VALUE)
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 785, Short.MAX_VALUE)
+        outputPanelLayout.setVerticalGroup(
+            outputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 785, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout backPanelLayout = new javax.swing.GroupLayout(backPanel);
+        backPanel.setLayout(backPanelLayout);
+        backPanelLayout.setHorizontalGroup(
+            backPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(backPanelLayout.createSequentialGroup()
                 .addGap(45, 45, 45)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(outputPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(45, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        backPanelLayout.setVerticalGroup(
+            backPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backPanelLayout.createSequentialGroup()
                 .addContainerGap(45, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(outputPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jLayeredPane1.add(jPanel1);
-        jPanel1.setBounds(0, 0, 1090, 830);
+        jLayeredPane1.add(backPanel);
+        backPanel.setBounds(0, 0, 1090, 830);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/main_background.png"))); // NOI18N
-        jLayeredPane1.add(jLabel1);
-        jLabel1.setBounds(0, 0, 1090, 830);
+        backgroundLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/main_background.png"))); // NOI18N
+        jLayeredPane1.add(backgroundLabel);
+        backgroundLabel.setBounds(0, 0, 1090, 830);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLayeredPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1085, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLayeredPane1)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 830, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -120,7 +158,7 @@ public class PreviewDialog extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                PreviewDialog dialog = new PreviewDialog(new javax.swing.JFrame(), true);
+                PreviewDialog dialog = new PreviewDialog(new javax.swing.JFrame(), true, "");
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -132,11 +170,15 @@ public class PreviewDialog extends javax.swing.JDialog {
         });
     }
 
+    private WebView previewWebView;
+    private JFXPanel outputFXPanel;
+    private String htmlContent;
+            
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel backPanel;
+    private javax.swing.JLabel backgroundLabel;
     private javax.swing.JLayeredPane jLayeredPane1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel outputPanel;
     // End of variables declaration//GEN-END:variables
 }
