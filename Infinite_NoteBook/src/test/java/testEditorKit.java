@@ -1,30 +1,23 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package Blocks;
 
-import java.util.ArrayList;
-import java.util.List;
-import javax.swing.text.*;
-import java.awt.Font;
+import javax.swing.text.StyledDocument;
+import javax.swing.text.StyledEditorKit;
+import javax.swing.text.StyleConstants;
 import java.awt.Color;
+
 
 /**
  *
  * @author gzy
  */
-public class RichTextToolBox extends javax.swing.JPanel {
+public class testEditorKit extends javax.swing.JFrame {
 
     /**
-     * Creates new form RichTextToolBox
+     * Creates new form testEditorKit
      */
-    public RichTextToolBox(RichTextBlock parBlock) {
-        initComponents();
-        initComponentsManually();
-        parentRichTextBlock = parBlock;
-    }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -34,28 +27,50 @@ public class RichTextToolBox extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setFontSizeButton = new javax.swing.JButton();
-        changeFontButton = new javax.swing.JButton();
-        changeColorButton = new javax.swing.JButton();
-        colorComboBox = new javax.swing.JComboBox<>();
-        changeFormButton = new javax.swing.JButton();
-        fontComboBox = new javax.swing.JComboBox<>();
-        formComboBox = new javax.swing.JComboBox<>();
         boldButton = new javax.swing.JButton();
         italyButton = new javax.swing.JButton();
         underlineButton = new javax.swing.JButton();
         fontSizeTextField = new javax.swing.JTextField();
-        copyButton = new javax.swing.JButton();
+        setFontSizeButton = new javax.swing.JButton();
+        CopyButton = new javax.swing.JButton();
+        changeFontButton = new javax.swing.JButton();
         cutButton = new javax.swing.JButton();
+        changeColorButton = new javax.swing.JButton();
         pasteButton = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        changeFormButton = new javax.swing.JButton();
+        fontComboBox = new javax.swing.JComboBox<>();
+        formComboBox = new javax.swing.JComboBox<>();
 
-        setOpaque(false);
-        setPreferredSize(new java.awt.Dimension(100, 300));
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        boldButton.setText("B");
+        boldButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boldButtonActionPerformed(evt);
+            }
+        });
+
+        italyButton.setText("I");
+        italyButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                italyButtonActionPerformed(evt);
+            }
+        });
+
+        underlineButton.setText("U");
 
         setFontSizeButton.setText("A");
         setFontSizeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 setFontSizeButtonActionPerformed(evt);
+            }
+        });
+
+        CopyButton.setText("C");
+        CopyButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CopyButtonActionPerformed(evt);
             }
         });
 
@@ -66,23 +81,32 @@ public class RichTextToolBox extends javax.swing.JPanel {
             }
         });
 
+        cutButton.setText("J");
+        cutButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cutButtonActionPerformed(evt);
+            }
+        });
+
         changeColorButton.setText("Color");
         changeColorButton.setPreferredSize(new java.awt.Dimension(75, 29));
 
-        colorComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "BLACK", "BLUE", "CYAN", "DARK_GRAY", "GRAY", "GREEN", "LIGHT_GRAY", "MAGENTA", "ORANGE", "PINK", "RED", "WHITE", "YELLOW" }));
-        colorComboBox.setMinimumSize(new java.awt.Dimension(75, 27));
-        colorComboBox.setPreferredSize(new java.awt.Dimension(75, 27));
-        colorComboBox.setSize(new java.awt.Dimension(75, 27));
-        colorComboBox.addActionListener(new java.awt.event.ActionListener() {
+        pasteButton.setText("P");
+        pasteButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                colorComboBoxActionPerformed(evt);
+                pasteButtonActionPerformed(evt);
             }
         });
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "IDLE", "Blue", "Green", "Red", "Yellow" }));
+        jComboBox1.setMinimumSize(new java.awt.Dimension(75, 27));
+        jComboBox1.setPreferredSize(new java.awt.Dimension(75, 27));
+        jComboBox1.setSize(new java.awt.Dimension(75, 27));
 
         changeFormButton.setText("Form");
         changeFormButton.setPreferredSize(new java.awt.Dimension(75, 29));
 
-        fontComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dialog", "DialogInput", "Monospaced", "Serif", "SansSerif" }));
+        fontComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PingFang", "Source Code Pro" }));
         fontComboBox.setMinimumSize(new java.awt.Dimension(75, 27));
         fontComboBox.setPreferredSize(new java.awt.Dimension(75, 27));
         fontComboBox.setSize(new java.awt.Dimension(75, 27));
@@ -96,51 +120,20 @@ public class RichTextToolBox extends javax.swing.JPanel {
         formComboBox.setMinimumSize(new java.awt.Dimension(75, 27));
         formComboBox.setPreferredSize(new java.awt.Dimension(75, 27));
         formComboBox.setSize(new java.awt.Dimension(75, 27));
-        formComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                formComboBoxActionPerformed(evt);
-            }
-        });
 
-        boldButton.setText("B");
-        boldButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                boldButtonActionPerformed(evt);
-            }
-        });
-
-        italyButton.setText("I");
-
-        underlineButton.setText("U");
-
-        copyButton.setText("C");
-        copyButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                copyButtonActionPerformed(evt);
-            }
-        });
-
-        cutButton.setText("K");
-        cutButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cutButtonActionPerformed(evt);
-            }
-        });
-
-        pasteButton.setText("P");
-        pasteButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pasteButtonActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(changeColorButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(formComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(changeFormButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(fontComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(changeFontButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
@@ -149,28 +142,19 @@ public class RichTextToolBox extends javax.swing.JPanel {
                                 .addComponent(fontSizeTextField))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(boldButton, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(underlineButton, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(italyButton, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)))
+                                .addComponent(italyButton, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(6, 6, 6))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(copyButton, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(CopyButton, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(pasteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(colorComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(changeColorButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(formComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(changeFormButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(fontComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(changeFontButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addContainerGap())))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -186,7 +170,7 @@ public class RichTextToolBox extends javax.swing.JPanel {
                     .addComponent(fontSizeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(9, 9, 9)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(copyButton, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CopyButton, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pasteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -199,32 +183,33 @@ public class RichTextToolBox extends javax.swing.JPanel {
                 .addComponent(formComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(changeColorButton, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(colorComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(9, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(74, 74, 74))
         );
-    }// </editor-fold>//GEN-END:initComponents
 
-    private void changeFontButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changeFontButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_changeFontButtonActionPerformed
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
 
     private void setFontSizeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setFontSizeButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_setFontSizeButtonActionPerformed
 
+    private void changeFontButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changeFontButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_changeFontButtonActionPerformed
+
+    private void fontComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fontComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fontComboBoxActionPerformed
+
     private void boldButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boldButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_boldButtonActionPerformed
 
-    private void fontComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fontComboBoxActionPerformed
+    private void CopyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CopyButtonActionPerformed
         // TODO add your handling code here:
-        changeFontButton.setAction(parentRichTextBlock.getFontFamilyAction(fontFamilyMap.get(fontComboBox.getSelectedIndex())));
-    }//GEN-LAST:event_fontComboBoxActionPerformed
-
-    private void copyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_copyButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_copyButtonActionPerformed
+    }//GEN-LAST:event_CopyButtonActionPerformed
 
     private void cutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cutButtonActionPerformed
         // TODO add your handling code here:
@@ -234,56 +219,57 @@ public class RichTextToolBox extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_pasteButtonActionPerformed
 
-    private void formComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_formComboBoxActionPerformed
+    private void italyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_italyButtonActionPerformed
         // TODO add your handling code here:
-        changeFormButton.setAction(parentRichTextBlock.getAlignmentAction(formComboBox.getSelectedIndex()));
-    }//GEN-LAST:event_formComboBoxActionPerformed
+    }//GEN-LAST:event_italyButtonActionPerformed
 
-    private void colorComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_colorComboBoxActionPerformed
-        // TODO add your handling code here:
-        changeColorButton.setAction(parentRichTextBlock.getForegroundAction(fontColorMap.get(colorComboBox.getSelectedIndex())));
-    }//GEN-LAST:event_colorComboBoxActionPerformed
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(testEditorKit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(testEditorKit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(testEditorKit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(testEditorKit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
 
-    private void initComponentsManually(){
-        boldButton.setAction(parentRichTextBlock.getBoldAction());
-        italyButton.setAction(parentRichTextBlock.getItalicAction());
-        underlineButton.setAction(parentRichTextBlock.getUnderlineAction());
-        copyButton.setAction(parentRichTextBlock.getCpyAction());
-        cutButton.setAction(parentRichTextBlock.getCutAction());
-        pasteButton.setAction(parentRichTextBlock.getPasteAction());
-        int fontSize = 16;
-        try{
-            fontSize = Integer.parseInt(fontSizeTextField.getText());
-        }
-        catch(NumberFormatException e){
-            fontSize = 16;
-        }
-        setFontSizeButton.setAction(parentRichTextBlock.getFontSizeAction(fontSize));
-        changeFontButton.setAction(parentRichTextBlock.getFontFamilyAction(fontFamilyMap.get(fontComboBox.getSelectedIndex())));
-        changeFormButton.setAction(parentRichTextBlock.getAlignmentAction(formComboBox.getSelectedIndex()));
-        changeColorButton.setAction(parentRichTextBlock.getForegroundAction(fontColorMap.get(colorComboBox.getSelectedIndex())));
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new testEditorKit().setVisible(true);
+            }
+        });
     }
-    
-    private RichTextBlock parentRichTextBlock;
-    private ArrayList<String> fontFamilyMap = new ArrayList<String>(
-            List.of(Font.DIALOG,Font.DIALOG_INPUT,Font.MONOSPACED,Font.SERIF,Font.SANS_SERIF)
-    );
-    private ArrayList<Color> fontColorMap = new ArrayList<Color>(
-            List.of(Color.BLACK, Color.BLUE,Color.CYAN,Color.DARK_GRAY,Color.GRAY,Color.GREEN,Color.LIGHT_GRAY,Color.MAGENTA,Color.ORANGE,Color.PINK,Color.RED,Color.WHITE,Color.YELLOW)
-    );
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton CopyButton;
     private javax.swing.JButton boldButton;
     private javax.swing.JButton changeColorButton;
     private javax.swing.JButton changeFontButton;
     private javax.swing.JButton changeFormButton;
-    private javax.swing.JComboBox<String> colorComboBox;
-    private javax.swing.JButton copyButton;
     private javax.swing.JButton cutButton;
     private javax.swing.JComboBox<String> fontComboBox;
     private javax.swing.JTextField fontSizeTextField;
     private javax.swing.JComboBox<String> formComboBox;
     private javax.swing.JButton italyButton;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JButton pasteButton;
     private javax.swing.JButton setFontSizeButton;
     private javax.swing.JButton underlineButton;
