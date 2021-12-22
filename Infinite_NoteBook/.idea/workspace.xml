@@ -5,33 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8d64d4b8-2fdc-4f62-b2de-f227a4eb10ff" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Bars/ButtonBars/BlankButtonBar.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Bars/ButtonBars/BlankButtonBar.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Bars/ButtonBars/BlankButtonBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Bars/ButtonBars/BlankButtonBar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Bars/ButtonBars/CommonTextButtonBar.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Bars/ButtonBars/CommonTextButtonBar.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Bars/ButtonBars/CommonTextButtonBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Bars/ButtonBars/CommonTextButtonBar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Bars/ButtonBars/MainWindowButtonBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Bars/ButtonBars/MainWindowButtonBar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Bars/SideBar/FileLabelBlock.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Bars/SideBar/FileTreeBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Bars/SideBar/FileTreeBar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Bars/SideBar/GitTreeBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Bars/SideBar/GitTreeBar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Bars/SideBar/LabelBlock.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Bars/SideBar/TitleTreeBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Bars/SideBar/TitleTreeBar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Blocks/BlankBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Blocks/BlankBlock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Blocks/CodeBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Blocks/CodeBlock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Blocks/CommonTextBlock.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Blocks/CommonTextBlock.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Blocks/CommonTextBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Blocks/CommonTextBlock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Blocks/HyperTextBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Blocks/HyperTextBlock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Blocks/MarkdownBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Blocks/MarkdownBlock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Blocks/MediaBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Blocks/MediaBlock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Blocks/RichTextBlock.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Blocks/RichTextBlock.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Blocks/RichTextBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Blocks/RichTextBlock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Blocks/RichTextToolBox.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Blocks/RichTextToolBox.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Blocks/RichTextToolBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Blocks/RichTextToolBox.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Blocks/TableBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Blocks/TableBlock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Git/GitOP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Git/GitOP.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/IO/IO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/IO/IO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Start/MainWindow.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Start/MainWindow.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Start/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Start/MainWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project_report/photos/class_UML.png" beforeDir="false" afterPath="$PROJECT_DIR$/../Project_report/photos/class_UML.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project_report/report.pptx" beforeDir="false" afterPath="$PROJECT_DIR$/../Project_report/report.pptx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +31,9 @@
     <option name="version" value="1" />
   </component>
   <component name="ProjectId" id="225Vq37Sat8I47KdE4GDvf3kR47" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
