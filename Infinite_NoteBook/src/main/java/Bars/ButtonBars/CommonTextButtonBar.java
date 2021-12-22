@@ -46,7 +46,8 @@ public class CommonTextButtonBar extends javax.swing.JPanel {
         operationButton = new javax.swing.JButton();
 
         setOpaque(false);
-        setPreferredSize(new java.awt.Dimension(1200, 62));
+        setPreferredSize(new java.awt.Dimension(1188, 62));
+        setLayout(null);
 
         changeButton.setText("Change");
         changeButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -54,8 +55,15 @@ public class CommonTextButtonBar extends javax.swing.JPanel {
                 changeButtonMouseClicked(evt);
             }
         });
+        add(changeButton);
+        changeButton.setBounds(765, 18, 91, 29);
 
+        typeLabel.setForeground(new java.awt.Color(238, 238, 238));
         typeLabel.setText("Common Text Block");
+        add(typeLabel);
+        typeLabel.setBounds(6, 23, 151, 16);
+        add(findTextField);
+        findTextField.setBounds(163, 18, 131, 26);
 
         findButton.setText("Find");
         findButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -63,6 +71,8 @@ public class CommonTextButtonBar extends javax.swing.JPanel {
                 findButtonMouseClicked(evt);
             }
         });
+        add(findButton);
+        findButton.setBounds(300, 18, 91, 29);
 
         replaceButton.setText("Replace");
         replaceButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -70,6 +80,8 @@ public class CommonTextButtonBar extends javax.swing.JPanel {
                 replaceButtonMouseClicked(evt);
             }
         });
+        add(replaceButton);
+        replaceButton.setBounds(397, 18, 92, 29);
 
         replaceAllButton.setText("Replace All");
         replaceAllButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -77,10 +89,16 @@ public class CommonTextButtonBar extends javax.swing.JPanel {
                 replaceAllButtonMouseClicked(evt);
             }
         });
+        add(replaceAllButton);
+        replaceAllButton.setBounds(495, 18, 113, 29);
 
         blockTypeComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Common Text", "Code", "HyperText", "Markdown", "Formula", "Rich Text", "Infinite Title", "Image", "Video", "Table", "Blank" }));
+        add(blockTypeComboBox);
+        blockTypeComboBox.setBounds(614, 19, 145, 27);
 
         operationsComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Move Up", "Move Down", "Undo", "Redo", "Copy Block", "Cut Block", "Delete Block", "Import", "Export", "Compile", "Display", "Compile & Display", "Archive Block" }));
+        add(operationsComboBox);
+        operationsComboBox.setBounds(862, 19, 162, 27);
 
         operationButton.setText("Take Operation");
         operationButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -88,50 +106,8 @@ public class CommonTextButtonBar extends javax.swing.JPanel {
                 operationButtonMouseClicked(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(typeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(findTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(findButton, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(replaceButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(replaceAllButton)
-                .addGap(18, 18, 18)
-                .addComponent(blockTypeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(changeButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(operationsComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(operationButton)
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(18, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(typeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(findTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(findButton)
-                        .addComponent(replaceButton)
-                        .addComponent(replaceAllButton)
-                        .addComponent(operationsComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(changeButton)
-                        .addComponent(blockTypeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(operationButton)))
-                .addGap(15, 15, 15))
-        );
+        add(operationButton);
+        operationButton.setBounds(1030, 18, 140, 29);
     }// </editor-fold>//GEN-END:initComponents
 
     private void findButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_findButtonMouseClicked

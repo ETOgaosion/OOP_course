@@ -6,17 +6,31 @@
   <component name="ChangeListManager">
     <list default="true" id="8d64d4b8-2fdc-4f62-b2de-f227a4eb10ff" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Bars/ButtonBars/MainWindowButtonBar.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Bars/ButtonBars/MainWindowButtonBar.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Bars/ButtonBars/BlankButtonBar.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Bars/ButtonBars/BlankButtonBar.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Bars/ButtonBars/BlankButtonBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Bars/ButtonBars/BlankButtonBar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Bars/ButtonBars/CommonTextButtonBar.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Bars/ButtonBars/CommonTextButtonBar.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Bars/ButtonBars/CommonTextButtonBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Bars/ButtonBars/CommonTextButtonBar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Bars/ButtonBars/MainWindowButtonBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Bars/ButtonBars/MainWindowButtonBar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Bars/SideBar/FileLabelBlock.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Bars/SideBar/FileTreeBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Bars/SideBar/FileTreeBar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Bars/SideBar/GitTreeBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Bars/SideBar/GitTreeBar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Bars/SideBar/LabelBlock.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Bars/SideBar/TitleTreeBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Bars/SideBar/TitleTreeBar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Blocks/BlankBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Blocks/BlankBlock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Blocks/BlockBasic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Blocks/BlockBasic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Blocks/CodeBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Blocks/CodeBlock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Blocks/CommonTextBlock.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Blocks/CommonTextBlock.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Blocks/CommonTextBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Blocks/CommonTextBlock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Blocks/HyperTextBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Blocks/HyperTextBlock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Blocks/MarkdownBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Blocks/MarkdownBlock.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Blocks/MediaBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Blocks/MediaBlock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Blocks/RichTextBlock.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Blocks/RichTextBlock.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Blocks/RichTextBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Blocks/RichTextBlock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Blocks/RichTextToolBox.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Blocks/RichTextToolBox.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Blocks/RichTextToolBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Blocks/RichTextToolBox.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Blocks/TableBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Blocks/TableBlock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Dialogs/PreviewDialog.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Dialogs/PreviewDialog.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Dialogs/PreviewDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Dialogs/PreviewDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Git/GitOP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Git/GitOP.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/IO/IO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/IO/IO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Start/MainWindow.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Start/MainWindow.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Start/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Start/MainWindow.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -51,10 +65,12 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.language" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -64,19 +80,39 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1639127624028</updated>
+      <workItem from="1640137575878" duration="2132000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

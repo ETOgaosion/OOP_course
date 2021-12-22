@@ -26,7 +26,7 @@
               <Component id="importButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="exportButton" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="100" max="32767" attributes="0"/>
+              <EmptySpace pref="88" max="32767" attributes="0"/>
               <Component id="blockTypeComboBox" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
               <Component id="changeButton" min="-2" max="-2" attributes="0"/>
@@ -100,6 +100,9 @@
     </Component>
     <Component class="javax.swing.JLabel" name="typeLabel">
       <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ee" green="ee" red="ee" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Blank Block"/>
       </Properties>
     </Component>

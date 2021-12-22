@@ -5,6 +5,7 @@
 package Blocks;
 
 import Start.*;
+import Bars.ButtonBars.*;
 import javax.swing.*;
 import javax.swing.DefaultListModel;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -84,6 +85,7 @@ public class MediaBlock extends javax.swing.JPanel {
     }
     
     private void initComponentsManually(){
+        mediaBlockBasic = new BlockBasic();
         mediaBlockBasic.setMasterMeidaBlock(this);
     }
     
@@ -172,7 +174,10 @@ public class MediaBlock extends javax.swing.JPanel {
     }//GEN-LAST:event_choosePathButtonActionPerformed
 
     private MainWindow parentMainWindow;
-    private BlockBasic mediaBlockBasic = new BlockBasic();
+    private BlockBasic mediaBlockBasic;
+    private MediaButtonBar mediaButtonBar;
+    private ImageButtonBar imageButtonBar;
+    private VideoButtonBar videoButtonBar;
     DefaultListModel<String> dlm = new DefaultListModel<>();
     BlockType curBlockType = BlockType.IMAGE;
 

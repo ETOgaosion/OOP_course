@@ -5,6 +5,7 @@
 package Blocks;
 import Blocks.CompileStrategy.*;
 import Blocks.BlockType;
+import Blocks.BlockBasic;
 import Bars.ButtonBars.BlankButtonBar;
 import Start.*;
 
@@ -24,6 +25,7 @@ public class BlankBlock extends javax.swing.JPanel {
         initComponents();
         initComponentsManually();
         parentMainWindow = parentWindow;
+        blankBlockBasic = new BlockBasic();
     }
     
     public boolean setID(int ID){
@@ -75,14 +77,14 @@ public class BlankBlock extends javax.swing.JPanel {
     
     private void initComponentsManually(){
         blankButtonBar = new Bars.ButtonBars.BlankButtonBar(this,BlockType.BLANK);
-        blankButtonBar.setBounds(0, 0, 650, 70);
+        blankButtonBar.setBounds(0, 0, 1200, 70);
         add(blankButtonBar);
         blankBlockBasic.setMasterBlankBlock(this);
     }
     
     private BlankButtonBar blankButtonBar;
     private MainWindow parentMainWindow;
-    private BlockBasic blankBlockBasic = new BlockBasic();
+    private BlockBasic blankBlockBasic;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables

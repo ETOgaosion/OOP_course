@@ -16,6 +16,8 @@ import static Blocks.BlockType.RICHTEXT;
 import static Blocks.BlockType.TABLE;
 import static Blocks.BlockType.TITLE;
 import static Blocks.BlockType.VIDEO;
+import static Blocks.BlockType.HYPERTEXT;
+
 import Start.*;
 
 /**
@@ -41,19 +43,19 @@ public class MainWindowButtonBar extends javax.swing.JPanel {
                 return CODE;
             }
             case 2->{
-                return MARKDOWN;
+                return HYPERTEXT;
             }
             case 3->{
-                return FORMULA;
+                return MARKDOWN;
             }
             case 4->{
-                return RICHTEXT;
+                return FORMULA;
             }
             case 5->{
-                return TITLE;
+                return RICHTEXT;
             }
             case 6->{
-                return MEDIA;
+                return TITLE;
             }
             case 7->{
                 return IMAGE;

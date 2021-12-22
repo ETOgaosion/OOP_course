@@ -4,13 +4,19 @@
  */
 package Blocks;
 
+import Bars.ButtonBars.RichTextButtonBar;
 import javax.swing.text.StyledDocument;
 import javax.swing.text.StyledEditorKit;
 import javax.swing.text.StyledEditorKit.*;
 import javax.swing.text.StyleConstants;
+import javax.swing.text.Utilities;
+import javax.swing.text.BadLocationException;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import java.awt.Font;
 import java.awt.Color;
 import Start.*;
+import javax.swing.JTextPane;
 
 /**
  *
@@ -23,9 +29,24 @@ public class RichTextBlock extends javax.swing.JPanel {
      */
     public RichTextBlock(MainWindow parMainWindow) {
         initComponents();
-        initComponentsManually();
         parentMainWindow = parMainWindow;
+        initComponentsManually();
+        mainInputTextPane.setBackground(new Color(255,255,255,0));
     }
+    
+    
+    public boolean setID(int ID){
+        return richTextBlockBasic.setID(ID);
+    }
+    
+    public int getID(){
+        return richTextBlockBasic.getID();
+    }
+    
+    public boolean changeBlock(BlockType newBlockType){
+        return parentMainWindow.changeBlock(richTextBlockBasic.getID(), newBlockType);
+    }
+    
     public String getSelectedText(){
         return mainInputTextPane.getSelectedText();
     }
@@ -44,9 +65,21 @@ public class RichTextBlock extends javax.swing.JPanel {
     }
     
     private void initComponentsManually(){
-        richTextToolBox.setBounds(1, 62, 80, 300);
+        lineNumTextPane.setContentType("text/html");
+        richTextButtonBar = new RichTextButtonBar(this);
+        richTextButtonBar.setBounds(0, 0, 1200, 62);
+        add(richTextButtonBar);
+        richTextToolBox = new RichTextToolBox(this);
+        richTextToolBox.setBounds(0, 62, 200, 238);
+        add(richTextToolBox);
+        richTextBlockBasic = new BlockBasic();
         richTextBlockBasic.setMasterRichTextBlock(this);
+        editorKit = new StyledEditorKit();
         mainInputTextPane.setEditorKit(editorKit);
+        DocumentListener repaintDocumentListener = new RepaintDocumentListener(this);
+        mainInputTextPane.getDocument().addDocumentListener(repaintDocumentListener);
+        revalidate();
+        repaint();
     }
     
     public StyledEditorKit getEditorKit(){
@@ -107,6 +140,67 @@ public class RichTextBlock extends javax.swing.JPanel {
     public BlockBasic getBlockBasic(){
         return richTextBlockBasic;
     }
+    
+    public int getLineCount(JTextPane textPane){
+        int totalCharacters = textPane.getText().length(); 
+        int lineCount = (totalCharacters == 0) ? 1 : 0;
+
+        try {
+           int offset = totalCharacters; 
+           while (offset > 0) {
+              offset = Utilities.getRowStart(textPane, offset) - 1;
+              lineCount++;
+           }
+        } catch (BadLocationException e) {
+            e.printStackTrace();
+        }
+        return lineCount;
+    }
+    
+    public void checkLineNumUpdate(){
+        int curLineNum = getLineCount(mainInputTextPane);
+        int displayLineNum = getLineCount(lineNumTextPane);
+        StringBuilder sb = new StringBuilder();
+        if(curLineNum != displayLineNum){
+            for(int i = 0; i < curLineNum; i++){
+                sb.append(Integer.toString(i).concat("<br>"));
+            }
+        }
+        lineNumTextPane.setText(sb.toString());
+    }
+    
+    public void repaintMainPane(){
+        mainInputTextPane.setBackground(new Color(255,255,255,0));
+        mainInputTextPane.revalidate();
+        mainInputTextPane.repaint();
+        lineNumTextPane.setBackground(new Color(255,255,255,0));
+        lineNumTextPane.revalidate();
+        lineNumTextPane.repaint();
+        revalidate();
+        repaint();
+        parentMainWindow.repaintMainPane();
+        checkLineNumUpdate();
+    }
+    
+    public class RepaintDocumentListener implements DocumentListener{
+        public RepaintDocumentListener(RichTextBlock par) {
+            super();
+            parRichTextBlock = par;
+        }
+        
+        public void removeUpdate(DocumentEvent evt){
+            parRichTextBlock.repaintMainPane();
+        }
+        
+         public void insertUpdate(DocumentEvent e) {
+            parRichTextBlock.repaintMainPane();
+        }
+        public void changedUpdate(DocumentEvent evt){
+            parRichTextBlock.repaintMainPane();
+        }
+        
+        private RichTextBlock parRichTextBlock;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -120,30 +214,39 @@ public class RichTextBlock extends javax.swing.JPanel {
         mainInputScrollPane = new javax.swing.JScrollPane();
         mainInputTextPane = new javax.swing.JTextPane();
         lineNumScrollPane = new javax.swing.JScrollPane();
-        lineNumEditorPane = new javax.swing.JEditorPane();
+        lineNumTextPane = new javax.swing.JTextPane();
 
         setOpaque(false);
         setSize(new java.awt.Dimension(1200, 300));
 
         mainInputScrollPane.setOpaque(false);
 
-        mainInputTextPane.setOpaque(false);
+        mainInputTextPane.setBackground(new Color(255,255,255,0)
+        );
+        mainInputTextPane.setForeground(new java.awt.Color(255, 255, 255));
+        mainInputTextPane.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                mainInputTextPaneKeyTyped(evt);
+            }
+        });
         mainInputScrollPane.setViewportView(mainInputTextPane);
 
         lineNumScrollPane.setOpaque(false);
 
-        lineNumEditorPane.setOpaque(false);
-        lineNumScrollPane.setViewportView(lineNumEditorPane);
+        lineNumTextPane.setBackground(new Color(255,255,255,0)
+        );
+        lineNumTextPane.setForeground(new java.awt.Color(255, 255, 255));
+        lineNumScrollPane.setViewportView(lineNumTextPane);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(102, Short.MAX_VALUE)
-                .addComponent(lineNumScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(200, Short.MAX_VALUE)
+                .addComponent(lineNumScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(mainInputScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 1029, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(mainInputScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 936, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21))
         );
         layout.setVerticalGroup(
@@ -156,7 +259,15 @@ public class RichTextBlock extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private RichTextToolBox richTextToolBox = new RichTextToolBox(this);
+    private void mainInputTextPaneKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_mainInputTextPaneKeyTyped
+        // TODO add your handling code here:
+        mainInputTextPane.setBackground(new Color(255,255,255,0));
+        mainInputTextPane.revalidate();
+        mainInputScrollPane.repaint();
+    }//GEN-LAST:event_mainInputTextPaneKeyTyped
+
+    private RichTextToolBox richTextToolBox;
+    private RichTextButtonBar richTextButtonBar;
     private MainWindow parentMainWindow;
     private BlockBasic richTextBlockBasic = new BlockBasic();
     private StyledEditorKit editorKit;
@@ -173,8 +284,8 @@ public class RichTextBlock extends javax.swing.JPanel {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JEditorPane lineNumEditorPane;
     private javax.swing.JScrollPane lineNumScrollPane;
+    private javax.swing.JTextPane lineNumTextPane;
     private javax.swing.JScrollPane mainInputScrollPane;
     private javax.swing.JTextPane mainInputTextPane;
     // End of variables declaration//GEN-END:variables

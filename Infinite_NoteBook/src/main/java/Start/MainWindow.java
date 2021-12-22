@@ -4,12 +4,14 @@
  */
 package Start;
 import Bars.ButtonBars.MainWindowButtonBar;
+import Bars.SideBar.SideBar;
 import java.awt.Color;
 import java.util.ArrayList;
 import Blocks.*;
 import Blocks.BlockType;
-import Git.GitOP;
+import Tools.GitOP;
 import Dialogs.PreviewDialog;
+import Bars.SideBar.*;
 import static Blocks.BlockType.BLANK;
 import static Blocks.BlockType.COMMONTEXT;
 import static Blocks.BlockType.CODE;
@@ -27,6 +29,8 @@ import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.event.AdjustmentListener;
+import java.awt.event.AdjustmentEvent;
 import javax.swing.JPanel;
 
 /**
@@ -89,6 +93,7 @@ public class MainWindow extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         coverPanel.setBackground(new Color(0,0,0,75));
+        coverPanel.setPreferredSize(new java.awt.Dimension(1400, 920));
 
         mainPanel.setOpaque(false);
         mainPanel.setSize(new java.awt.Dimension(1200, 878));
@@ -106,11 +111,13 @@ public class MainWindow extends javax.swing.JFrame {
         mainPanel.setLayout(mainPanelLayout);
         mainPanelLayout.setHorizontalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mainScrollPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(mainScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1194, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         mainPanelLayout.setVerticalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mainScrollPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(mainScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         javax.swing.GroupLayout coverPanelLayout = new javax.swing.GroupLayout(coverPanel);
@@ -118,9 +125,8 @@ public class MainWindow extends javax.swing.JFrame {
         coverPanelLayout.setHorizontalGroup(
             coverPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, coverPanelLayout.createSequentialGroup()
-                .addContainerGap(100, Short.MAX_VALUE)
-                .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(100, 100, 100))
+                .addGap(0, 196, Short.MAX_VALUE)
+                .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         coverPanelLayout.setVerticalGroup(
             coverPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -130,7 +136,7 @@ public class MainWindow extends javax.swing.JFrame {
         );
 
         MainLayer.add(coverPanel);
-        coverPanel.setBounds(0, 0, 1400, 920);
+        coverPanel.setBounds(0, 0, 1390, 920);
 
         backgroundLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/main_background.png"))); // NOI18N
         MainLayer.add(backgroundLabel);
@@ -253,7 +259,9 @@ public class MainWindow extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(MainLayer, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(MainLayer, javax.swing.GroupLayout.DEFAULT_SIZE, 1380, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -274,10 +282,18 @@ public class MainWindow extends javax.swing.JFrame {
         mainContainerPanel.setLayout(new GridLayout(0,1));
         mainContainerPanel.setOpaque(false);
         mainScrollPanel.getViewport().setView(mainContainerPanel);
+        AdjustmentListener repaintListener = new repaintAdjustListener(this);
+        mainScrollPanel.getHorizontalScrollBar().addAdjustmentListener(repaintListener);
+        mainScrollPanel.getVerticalScrollBar().addAdjustmentListener(repaintListener);
         mainButtonBar = new Bars.ButtonBars.MainWindowButtonBar(this);
         mainButtonBar.setBounds(50, 0, 1300, 41);
         MainLayer.add(mainButtonBar);
         MainLayer.moveToFront(mainButtonBar);
+        sideBar = new SideBar(this);
+        sideBar.setBounds(0, 42, 200, 878);
+        coverPanel.add(sideBar);
+        coverPanel.revalidate();
+        coverPanel.repaint();
     }
     
     private class AddBlockReturnValue{
@@ -324,7 +340,7 @@ public class MainWindow extends javax.swing.JFrame {
                 inputBlockList.get(index).setID(totalBlockList.size() - 1);
             }
             case CODE->{
-                inputBlockList.add(new CodeBlock(this));
+                inputBlockList.add(new CodeBlock(this, BlockType.CODE));
                 AddBlockReturnValue ret = addInputBlock(height);
                 index = ret.index;
                 curBlockHeight = ret.height;
@@ -357,12 +373,11 @@ public class MainWindow extends javax.swing.JFrame {
             }
             case RICHTEXT->{
                 richTextBlockList.add(new RichTextBlock(this));
-                AddBlockReturnValue ret = addInputBlock(height);
-                index = ret.index;
-                curBlockHeight = ret.height;
+                index = richTextBlockList.size() - 1;
+                curBlockHeight = 300;
                 totalBlockList.add(new BlockDocument(RICHTEXT,height));
-                inputBlockList.get(index).setID(totalBlockList.size() - 1);
-                inputBlockList.get(index).setID(totalBlockList.size() - 1);
+                richTextBlockList.get(index).setID(totalBlockList.size() - 1);
+                richTextBlockList.get(index).setID(totalBlockList.size() - 1);
             }
             case TITLE->{
                 inputBlockList.add(new InfiniteTitle(this));
@@ -454,7 +469,7 @@ public class MainWindow extends javax.swing.JFrame {
         totalBlockList.get(totalBlockList.size() - 1).setIndex(index);
         totalBlockList.get(totalBlockList.size() - 1).setHight(curBlockHeight);
         totalBlockList.get(totalBlockList.size() - 1).needreRender = false;
-        totalHeight += curBlockHeight + 50;
+        totalHeight += curBlockHeight;
         rendering();
         return true;
     }
@@ -557,7 +572,7 @@ public class MainWindow extends javax.swing.JFrame {
 //            mainScrollPanel.setSize(new Dimension(1200,878));
 //            mainScrollPanel.setPreferredSize(new Dimension(1200,878));
 //        }
-        mainContainerPanel.setSize(new Dimension(1200,totalHeight - 50));
+        mainContainerPanel.setSize(new Dimension(1200,totalHeight));
         for (int i = 0; i < totalBlockList.size(); i++) {
             BlockDocument currDocument = totalBlockList.get(i);
             if(currDocument.rendered == true && currDocument.needreRender == false){
@@ -651,6 +666,29 @@ public class MainWindow extends javax.swing.JFrame {
         newPreviewDialog.setVisible(true);
     }
     
+    public void repaintMainPane(){
+        mainScrollPanel.revalidate();
+        mainScrollPanel.repaint();
+        mainContainerPanel.revalidate();
+        mainContainerPanel.repaint();
+        revalidate();
+        repaint();
+    }
+    
+    public class repaintAdjustListener implements AdjustmentListener{
+        public repaintAdjustListener(MainWindow par) {
+            super();
+            parMainWindow = par;
+        }
+        
+        
+        public void adjustmentValueChanged(AdjustmentEvent evt){
+            parMainWindow.repaintMainPane();
+        }
+        
+        private MainWindow parMainWindow;
+    }
+    
     private void openNewWindowMenutemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openNewWindowMenutemActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_openNewWindowMenutemActionPerformed
@@ -730,7 +768,7 @@ public class MainWindow extends javax.swing.JFrame {
     
     private GitOP mainGitOP = new GitOP();
     
-    private class BlockDocument{
+    public class BlockDocument{
         public BlockType blockType = BlockType.BLANK;
         public int index = 0;
         public int startHeight = 0;
@@ -777,6 +815,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JPanel mainContainerPanel = new javax.swing.JPanel();
     private int totalHeight = 0;
     private String totalHtml;
+    private SideBar sideBar;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu GitMenu;

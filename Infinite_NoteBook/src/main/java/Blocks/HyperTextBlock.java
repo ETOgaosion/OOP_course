@@ -4,6 +4,6 @@ import Start.MainWindow;
 public class HyperTextBlock extends CodeBlock{
 
     public HyperTextBlock(MainWindow parentwWindow) {
-        super(parentwWindow);
+        super(parentwWindow,BlockType.HYPERTEXT);
     }
 }

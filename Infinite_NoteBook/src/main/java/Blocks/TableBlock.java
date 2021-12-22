@@ -45,6 +45,7 @@ public class TableBlock extends javax.swing.JPanel {
     }
 
     private void initComponentsManually(){
+        tableBlockBasic = new BlockBasic();
         tableBlockBasic.setMasterTableBlock(this);
     }
     

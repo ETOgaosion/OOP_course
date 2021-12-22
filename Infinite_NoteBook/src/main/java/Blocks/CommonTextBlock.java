@@ -11,6 +11,8 @@ import Start.*;
 import javax.swing.undo.UndoManager;
 import javax.swing.event.UndoableEditEvent;
 import javax.swing.event.UndoableEditListener;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import javax.swing.text.*;
 import java.awt.Color;
 
@@ -26,8 +28,9 @@ public class CommonTextBlock extends javax.swing.JPanel{
      */
     public CommonTextBlock(MainWindow parentWindow, BlockType curBlockType) {
         initComponents();
-        initComponentsManually(curBlockType);
         parentMainWindow = parentWindow;
+        initComponentsManually(curBlockType);
+        mainInputTextPane.setOpaque(false);
     }
     
     public boolean setID(int ID){
@@ -82,7 +85,7 @@ public class CommonTextBlock extends javax.swing.JPanel{
         mainInputScrollPane = new javax.swing.JScrollPane();
         mainInputTextPane = new javax.swing.JTextPane();
         lineNumScrollPane = new javax.swing.JScrollPane();
-        lineNumEditorPane = new javax.swing.JEditorPane();
+        lineNumTextPane = new javax.swing.JTextPane();
 
         setBackground(new Color(0,0,0,0));
         setOpaque(false);
@@ -90,13 +93,20 @@ public class CommonTextBlock extends javax.swing.JPanel{
 
         mainInputScrollPane.setOpaque(false);
 
-        mainInputTextPane.setOpaque(false);
+        mainInputTextPane.setBackground(new Color(255, 255, 255,0));
+        mainInputTextPane.setForeground(new java.awt.Color(255, 255, 255));
+        mainInputTextPane.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                mainInputTextPaneKeyTyped(evt);
+            }
+        });
         mainInputScrollPane.setViewportView(mainInputTextPane);
 
         lineNumScrollPane.setOpaque(false);
 
-        lineNumEditorPane.setOpaque(false);
-        lineNumScrollPane.setViewportView(lineNumEditorPane);
+        lineNumTextPane.setBackground(new Color(255,255,255,0));
+        lineNumTextPane.setForeground(new java.awt.Color(255, 255, 255));
+        lineNumScrollPane.setViewportView(lineNumTextPane);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -119,17 +129,28 @@ public class CommonTextBlock extends javax.swing.JPanel{
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void mainInputTextPaneKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_mainInputTextPaneKeyTyped
+        // TODO add your handling code here:
+        mainInputTextPane.setBackground(new Color(255,255,255,0));
+        mainInputTextPane.revalidate();
+        mainInputTextPane.repaint();
+    }//GEN-LAST:event_mainInputTextPaneKeyTyped
+
     private void initComponentsManually(BlockType curBlockType){
+        lineNumTextPane.setContentType("text/html");
+        inputTextBlockBasic = new BlockBasic();
         mainInputScrollPane.getViewport().setOpaque(false);
         lineNumScrollPane.getViewport().setOpaque(false);
         initCommonTextButtonBar(curBlockType);
-        commonTextButtonBar.setBounds(0, 0, 650, 62);
+        commonTextButtonBar.setBounds(0, 0, 1200, 62);
         this.add(commonTextButtonBar);
         mainInputTextPane.getDocument().addUndoableEditListener(new UndoableEditListener(){
             public void undoableEditHappened(UndoableEditEvent e){
                 undoManager.addEdit(e.getEdit());
             }
         });
+        DocumentListener repaintDocumentListener = new RepaintDocumentListener(this);
+        mainInputTextPane.getDocument().addDocumentListener(repaintDocumentListener);
         inputTextBlockBasic.setMasterInputBlock(this);
     }
     
@@ -160,17 +181,80 @@ public class CommonTextBlock extends javax.swing.JPanel{
         return inputTextBlockBasic;
     }
     
+    public int getLineCount(JTextPane textPane){
+        int totalCharacters = textPane.getText().length(); 
+        int lineCount = (totalCharacters == 0) ? 1 : 0;
+
+        try {
+           int offset = totalCharacters; 
+           while (offset > 0) {
+              offset = Utilities.getRowStart(textPane, offset) - 1;
+              lineCount++;
+           }
+        } catch (BadLocationException e) {
+            e.printStackTrace();
+        }
+        return lineCount;
+    }
+    
+    public void checkLineNumUpdate(){
+        int curLineNum = getLineCount(mainInputTextPane);
+        int displayLineNum = getLineCount(lineNumTextPane);
+        StringBuilder sb = new StringBuilder();
+        if(curLineNum != displayLineNum){
+            for(int i = 0; i < curLineNum; i++){
+                sb.append(Integer.toString(i).concat("<br>"));
+            }
+        }
+        lineNumTextPane.setText(sb.toString());
+    }
+    
+    
+    public void repaintMainPane(){
+        mainInputTextPane.setBackground(new Color(255,255,255,0));
+        mainInputTextPane.revalidate();
+        mainInputTextPane.repaint();
+        lineNumTextPane.setBackground(new Color(255,255,255,0));
+        lineNumTextPane.revalidate();
+        lineNumTextPane.repaint();
+        revalidate();
+        repaint();
+        parentMainWindow.repaintMainPane();
+        checkLineNumUpdate();
+    }
+    
+    public class RepaintDocumentListener implements DocumentListener{
+        public RepaintDocumentListener(CommonTextBlock par) {
+            super();
+            parCommonTextBlock = par;
+        }
+        
+        public void removeUpdate(DocumentEvent evt){
+            parCommonTextBlock.repaintMainPane();
+        }
+        
+         public void insertUpdate(DocumentEvent e) {
+            parCommonTextBlock.repaintMainPane();
+        }
+        public void changedUpdate(DocumentEvent evt){
+            parCommonTextBlock.repaintMainPane();
+        }
+        
+        private CommonTextBlock parCommonTextBlock;
+    }
+
+    
     private CommonTextButtonBar commonTextButtonBar;
     private MainWindow parentMainWindow;
     private BlockType curBlockType = BlockType.COMMONTEXT;
     private UndoManager undoManager = new UndoManager();
     
-    private BlockBasic inputTextBlockBasic = new BlockBasic();
+    private BlockBasic inputTextBlockBasic;
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JEditorPane lineNumEditorPane;
     private javax.swing.JScrollPane lineNumScrollPane;
+    private javax.swing.JTextPane lineNumTextPane;
     private javax.swing.JScrollPane mainInputScrollPane;
     private javax.swing.JTextPane mainInputTextPane;
     // End of variables declaration//GEN-END:variables

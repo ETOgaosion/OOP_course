@@ -4,7 +4,7 @@ import Start.*;
 
 public class CodeBlock extends CommonTextBlock{
 
-    public CodeBlock(MainWindow parentwWindow) {
-        super(parentwWindow,BlockType.CODE);
+    public CodeBlock(MainWindow parentwWindow, BlockType curBlockType) {
+        super(parentwWindow,curBlockType);
     }
 }

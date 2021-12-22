@@ -84,6 +84,7 @@ public class BlankButtonBar extends javax.swing.JPanel {
 
         deleteButton.setText("Delete");
 
+        typeLabel.setForeground(new java.awt.Color(238, 238, 238));
         typeLabel.setText("Blank Block");
 
         importButton.setText("Import");
@@ -103,7 +104,7 @@ public class BlankButtonBar extends javax.swing.JPanel {
                 .addComponent(importButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(exportButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
                 .addComponent(blockTypeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37)
                 .addComponent(changeButton)
